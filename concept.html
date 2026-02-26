@@ -1,206 +1,553 @@
 <!DOCTYPE html>
-<html><head><meta charset="utf-8"><title>Doom Scroll Blocker — Concept</title></head>
-<body style="background:#1a1a2e;color:#e0e0e0;font-family:system-ui;padding:20px;margin:0">
-<h2 style="text-align:center;color:#7fdbca;margin-bottom:5px">DOOM SCROLL BLOCKER</h2>
-<p style="text-align:center;color:#888;font-size:13px;margin-top:0">Universal Clip-On Design — Fits All Phones + Cases</p>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Doom Scroll Blocker — Product Concept</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#0a0a1a; color:#e0e0e0; font-family:'SF Pro Display',system-ui,-apple-system,sans-serif; overflow-x:hidden; }
+.hero { text-align:center; padding:50px 20px 30px; }
+.hero h1 { font-size:42px; font-weight:800; letter-spacing:-1px;
+  background:linear-gradient(135deg,#a855f7,#7c3aed,#6366f1);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.hero .tagline { color:#888; font-size:16px; margin-top:8px; }
+.hero .price-tag { display:inline-block; margin-top:16px; background:#1e1e3a; border:1px solid #a855f7;
+  border-radius:20px; padding:6px 20px; color:#c4b5fd; font-size:14px; }
 
-<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:40px;margin-top:20px">
+.views { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; padding:20px; max-width:1200px; margin:0 auto; }
+.view-card { background:#12122a; border:1px solid #2a2a4a; border-radius:16px; padding:24px; text-align:center; }
+.view-card h3 { color:#f7dc6f; font-size:13px; text-transform:uppercase; letter-spacing:2px; margin-bottom:16px; }
+.phone-shadow { filter: drop-shadow(0 20px 40px rgba(168,85,247,0.15)); }
 
-<!-- FRONT VIEW -->
-<div>
-<p style="text-align:center;color:#f7dc6f;font-size:12px;margin-bottom:8px">FRONT VIEW (on phone)</p>
-<svg width="240" height="420" viewBox="0 0 240 420">
-  <!-- Phone body -->
-  <rect x="40" y="10" width="160" height="350" rx="22" fill="#2a2a4a" stroke="#555" stroke-width="2"/>
-  <!-- Screen -->
-  <rect x="50" y="28" width="140" height="318" rx="5" fill="#111" stroke="#333"/>
+/* Color picker */
+.color-picker { display:flex; gap:12px; justify-content:center; margin:20px 0 10px; flex-wrap:wrap; }
+.color-btn { width:56px; height:56px; border-radius:14px; border:2px solid #333; cursor:pointer;
+  transition:all 0.3s ease; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+.color-btn:hover { transform:scale(1.1); }
+.color-btn.active { border-color:#fff; box-shadow:0 0 16px rgba(255,255,255,0.2); transform:scale(1.1); }
+.color-btn span { font-size:8px; color:#aaa; margin-top:3px; }
 
-  <!-- Visible zone -->
-  <text x="120" y="55" text-anchor="middle" fill="#aaa" font-size="10">Clock + Notifications</text>
-  <text x="120" y="82" text-anchor="middle" fill="white" font-size="22" font-weight="bold">9:41</text>
-  <text x="120" y="102" text-anchor="middle" fill="#6f6" font-size="10">📩 2 new messages</text>
+/* Feature grid */
+.features { max-width:800px; margin:40px auto; padding:0 20px; }
+.features h2 { text-align:center; color:#7fdbca; font-size:22px; margin-bottom:24px; }
+.feat-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+.feat { background:#12122a; border:1px solid #2a2a4a; border-radius:12px; padding:18px; }
+.feat .icon { font-size:28px; margin-bottom:8px; }
+.feat .label { color:#c4b5fd; font-size:14px; font-weight:600; margin-bottom:4px; }
+.feat .desc { color:#888; font-size:12px; line-height:1.5; }
+.specs { max-width:600px; margin:40px auto; padding:0 20px; }
+.specs h2 { text-align:center; color:#7fdbca; font-size:22px; margin-bottom:24px; }
+.spec-row { display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid #1e1e3a; }
+.spec-row .k { color:#f7dc6f; font-size:13px; }
+.spec-row .v { color:#ccc; font-size:13px; text-align:right; }
+.gap { max-width:700px; margin:50px auto; padding:0 20px; }
+.gap h2 { text-align:center; color:#7fdbca; font-size:22px; margin-bottom:24px; }
+footer { text-align:center; color:#444; font-size:11px; padding:40px 20px; }
+@keyframes sandFall { 0%{cy:248;opacity:0.9} 100%{cy:290;opacity:0} }
+@keyframes timerPulse { 0%,100%{opacity:1} 50%{opacity:0.6} }
+</style>
+</head>
+<body>
 
-  <!-- Divider line -->
-  <line x1="50" y1="118" x2="190" y2="118" stroke="#f7dc6f" stroke-width="2" stroke-dasharray="6,3"/>
-  <text x="120" y="113" text-anchor="middle" fill="#f7dc6f" font-size="9">▲ VISIBLE ▲</text>
-
-  <!-- Blocked zone -->
-  <rect x="40" y="118" width="160" height="228" fill="rgba(120,80,200,0.28)" stroke="#a855f7" stroke-width="2.5"/>
-  <text x="120" y="165" text-anchor="middle" fill="#a855f7" font-size="15" font-weight="bold">BLOCKED ZONE</text>
-  <text x="120" y="185" text-anchor="middle" fill="#a855f7" font-size="10">Frosted translucent plastic</text>
-  <text x="120" y="200" text-anchor="middle" fill="#a855f7" font-size="10">Can't see feed = can't scroll</text>
-
-  <!-- Sand timer -->
-  <rect x="106" y="225" width="28" height="60" rx="12" fill="none" stroke="#f7dc6f" stroke-width="1.5"/>
-  <line x1="106" y1="255" x2="134" y2="255" stroke="#f7dc6f" stroke-width="1" stroke-dasharray="3,2"/>
-  <!-- Top sand -->
-  <circle cx="120" cy="238" r="3.5" fill="#f7dc6f"/>
-  <circle cx="120" cy="245" r="2.5" fill="#f7dc6f" opacity="0.7"/>
-  <circle cx="117" cy="250" r="2" fill="#f7dc6f" opacity="0.5"/>
-  <!-- Bottom sand pile -->
-  <circle cx="118" cy="272" r="4" fill="#f7dc6f" opacity="0.3"/>
-  <circle cx="123" cy="275" r="3" fill="#f7dc6f" opacity="0.25"/>
-  <circle cx="115" cy="277" r="3" fill="#f7dc6f" opacity="0.2"/>
-
-  <text x="148" y="248" fill="#7fdbca" font-size="10">Mini sand</text>
-  <text x="148" y="261" fill="#7fdbca" font-size="10">timer</text>
-  <text x="148" y="274" fill="#7fdbca" font-size="10">(30 or 60 min)</text>
-
-  <!-- Left spring clip -->
-  <path d="M 25 128 L 40 128" stroke="#ff6b6b" stroke-width="3"/>
-  <path d="M 25 128 L 25 336" stroke="#ff6b6b" stroke-width="3"/>
-  <path d="M 25 336 L 40 336" stroke="#ff6b6b" stroke-width="3"/>
-  <text x="15" y="240" fill="#ff6b6b" font-size="10" transform="rotate(-90,15,240)">SPRING CLIP</text>
-
-  <!-- Right spring clip -->
-  <path d="M 215 128 L 200 128" stroke="#ff6b6b" stroke-width="3"/>
-  <path d="M 215 128 L 215 336" stroke="#ff6b6b" stroke-width="3"/>
-  <path d="M 215 336 L 200 336" stroke="#ff6b6b" stroke-width="3"/>
-  <text x="225" y="240" fill="#ff6b6b" font-size="10" transform="rotate(90,225,240)">SPRING CLIP</text>
-
-  <!-- Bottom note -->
-  <rect x="50" y="370" width="140" height="40" rx="8" fill="#1e1e3a" stroke="#555"/>
-  <text x="120" y="388" text-anchor="middle" fill="#888" font-size="10">Spring clips auto-adjust</text>
-  <text x="120" y="402" text-anchor="middle" fill="#f7dc6f" font-size="11" font-weight="bold">One SKU fits all phones</text>
-</svg>
+<div class="hero">
+  <h1>DOOM SCROLL BLOCKER</h1>
+  <p class="tagline">Clip it on. Flip the timer. Take your life back.</p>
+  <span class="price-tag">$2-3 to make &nbsp;|&nbsp; $15-18 retail &nbsp;|&nbsp; 5-6x margin</span>
 </div>
 
-<!-- SIDE VIEW -->
-<div>
-<p style="text-align:center;color:#f7dc6f;font-size:12px;margin-bottom:8px">SIDE VIEW (cross-section)</p>
-<svg width="200" height="420" viewBox="0 0 200 420">
-  <!-- Case left -->
-  <rect x="55" y="20" width="10" height="310" rx="2" fill="#3a3a5a" stroke="#666"/>
-  <text x="42" y="45" fill="#aaa" font-size="10" text-anchor="end">Case</text>
+<div class="views">
 
-  <!-- Phone -->
-  <rect x="65" y="20" width="12" height="310" rx="2" fill="#555" stroke="#777"/>
-  <text x="95" y="45" fill="#aaa" font-size="10">Phone</text>
+<!-- ===== MAIN PRODUCT VIEW ===== -->
+<div class="view-card" style="min-width:320px">
+  <h3>Product View</h3>
 
-  <!-- Case right -->
-  <rect x="77" y="20" width="10" height="310" rx="2" fill="#3a3a5a" stroke="#666"/>
+  <!-- COLOR PICKER -->
+  <div class="color-picker">
+    <div class="color-btn active" data-color="midnight" style="background:linear-gradient(135deg,#2a1a4a,#1a1030)" onclick="setColor('midnight')"><div style="width:12px;height:12px;border-radius:50%;background:#a855f7"></div><span>Midnight</span></div>
+    <div class="color-btn" data-color="ocean" style="background:linear-gradient(135deg,#1a2a4a,#101830)" onclick="setColor('ocean')"><div style="width:12px;height:12px;border-radius:50%;background:#3b82f6"></div><span>Ocean</span></div>
+    <div class="color-btn" data-color="forest" style="background:linear-gradient(135deg,#1a3a2a,#103018)" onclick="setColor('forest')"><div style="width:12px;height:12px;border-radius:50%;background:#22c55e"></div><span>Forest</span></div>
+    <div class="color-btn" data-color="sunset" style="background:linear-gradient(135deg,#3a2a1a,#301810)" onclick="setColor('sunset')"><div style="width:12px;height:12px;border-radius:50%;background:#f97316"></div><span>Sunset</span></div>
+    <div class="color-btn" data-color="clear" style="background:linear-gradient(135deg,#2a2a2a,#1a1a1a)" onclick="setColor('clear')"><div style="width:12px;height:12px;border-radius:50%;background:#d4af37"></div><span>Clear</span></div>
+  </div>
 
-  <!-- Shield (blocker) on front -->
-  <rect x="42" y="118" width="55" height="212" rx="3" fill="rgba(120,80,200,0.3)" stroke="#a855f7" stroke-width="2"/>
-  <text x="69" y="228" text-anchor="middle" fill="#7fdbca" font-size="9" transform="rotate(-90,69,228)">Frosted shield</text>
+  <svg id="productSvg" width="320" height="540" viewBox="0 0 320 540" class="phone-shadow">
+    <defs>
+      <linearGradient id="phoneBg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#2a2a4a"/><stop offset="100%" stop-color="#1a1a2e"/>
+      </linearGradient>
+      <linearGradient id="shieldGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop id="shieldStop1" offset="0%" stop-color="rgba(168,85,247,0.35)"/>
+        <stop id="shieldStop2" offset="100%" stop-color="rgba(168,85,247,0.15)"/>
+      </linearGradient>
+      <linearGradient id="clipGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#444"/><stop offset="100%" stop-color="#222"/>
+      </linearGradient>
+      <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <filter id="redGlow"><feGaussianBlur stdDeviation="4" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <filter id="sandGlow"><feGaussianBlur stdDeviation="2" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    </defs>
 
-  <!-- Left clip -->
-  <path d="M 40 118 C 25 118, 20 130, 20 148 L 20 310 C 20 328, 25 340, 40 340" stroke="#ff6b6b" stroke-width="3" fill="none"/>
-  <text x="10" y="235" fill="#ff6b6b" font-size="9" transform="rotate(-90,10,235)">Clip</text>
+    <!-- Phone body -->
+    <rect x="70" y="20" width="180" height="400" rx="28" fill="url(#phoneBg)" stroke="#555" stroke-width="2"/>
+    <rect x="130" y="28" width="60" height="7" rx="3.5" fill="#1a1a2e" stroke="#333"/>
+    <rect x="80" y="42" width="160" height="360" rx="4" fill="#080818"/>
 
-  <!-- Right clip -->
-  <path d="M 100 118 C 115 118, 120 130, 120 148 L 120 310 C 120 328, 115 340, 100 340" stroke="#ff6b6b" stroke-width="3" fill="none"/>
-  <text x="132" y="235" fill="#ff6b6b" font-size="9" transform="rotate(-90,132,235)">Clip</text>
+    <!-- ===== VISIBLE ZONE ===== -->
+    <text x="100" y="60" fill="#aaa" font-size="10" font-family="system-ui">9:41</text>
+    <rect x="217" y="53" width="14" height="8" rx="2" fill="none" stroke="#aaa" stroke-width="0.8"/>
+    <rect x="218" y="54.5" width="11" height="5" rx="1" fill="#6f6"/>
+    <text x="160" y="98" text-anchor="middle" fill="white" font-size="38" font-weight="200" font-family="system-ui">9:41</text>
+    <text x="160" y="116" text-anchor="middle" fill="#888" font-size="11" font-family="system-ui">Wednesday, February 25</text>
+    <rect x="92" y="128" width="136" height="38" rx="10" fill="#1e1e3a" stroke="#333"/>
+    <circle cx="108" cy="147" r="8" fill="#3b82f6"/>
+    <text x="105" y="150" fill="white" font-size="8" text-anchor="middle" font-weight="700">M</text>
+    <text x="122" y="143" fill="#ccc" font-size="9" font-weight="600">iMessage</text>
+    <text x="122" y="155" fill="#888" font-size="8">Hey, you coming tonight?</text>
 
-  <!-- Dimension line -->
-  <line x1="20" y1="360" x2="120" y2="360" stroke="#f7dc6f" stroke-width="1" stroke-dasharray="4,2"/>
-  <path d="M 20 355 L 20 365" stroke="#f7dc6f" stroke-width="1"/>
-  <path d="M 120 355 L 120 365" stroke="#f7dc6f" stroke-width="1"/>
-  <text x="70" y="378" text-anchor="middle" fill="#f7dc6f" font-size="10">Clips expand 8-16mm</text>
-  <text x="70" y="393" text-anchor="middle" fill="#f7dc6f" font-size="10">Fits naked → OtterBox</text>
+    <!-- Divider -->
+    <line x1="80" y1="178" x2="240" y2="178" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="4,3" filter="url(#glow)" id="dividerLine"/>
+    <rect x="132" y="170" width="56" height="16" rx="8" fill="#2a1a4a" stroke="#a855f7" stroke-width="0.5" id="dividerBadgeBg"/>
+    <text x="160" y="181" text-anchor="middle" fill="#c4b5fd" font-size="8" font-weight="600" id="dividerBadge">VISIBLE</text>
 
-  <!-- Note -->
-  <rect x="15" y="400" width="170" height="18" rx="5" fill="#1e1e3a" stroke="#555"/>
-  <text x="100" y="413" text-anchor="middle" fill="#7fdbca" font-size="9">Same as phone tripod mount mechanism</text>
-</svg>
+    <!-- ===== FROSTED SHIELD ===== -->
+    <rect id="shield" x="68" y="178" width="184" height="226" rx="4" fill="url(#shieldGrad)" stroke="#a855f7" stroke-width="1.5"/>
+    <!-- Frosted texture -->
+    <g id="frostLines" opacity="0.06" stroke="white" stroke-width="0.5">
+      <line x1="80" y1="192" x2="240" y2="192"/><line x1="80" y1="207" x2="240" y2="207"/>
+      <line x1="80" y1="222" x2="240" y2="222"/><line x1="80" y1="237" x2="240" y2="237"/>
+      <line x1="80" y1="252" x2="240" y2="252"/><line x1="80" y1="267" x2="240" y2="267"/>
+      <line x1="80" y1="282" x2="240" y2="282"/><line x1="80" y1="297" x2="240" y2="297"/>
+      <line x1="80" y1="312" x2="240" y2="312"/><line x1="80" y1="327" x2="240" y2="327"/>
+      <line x1="80" y1="342" x2="240" y2="342"/><line x1="80" y1="357" x2="240" y2="357"/>
+      <line x1="80" y1="372" x2="240" y2="372"/><line x1="80" y1="387" x2="240" y2="387"/>
+    </g>
+
+    <!-- BLOCKED label -->
+    <text x="160" y="210" text-anchor="middle" fill="#a855f7" font-size="12" font-weight="600" opacity="0.5" id="blockedText1">CAN'T SEE THE FEED</text>
+    <text x="160" y="225" text-anchor="middle" fill="#a855f7" font-size="10" opacity="0.35" id="blockedText2">CAN'T SCROLL</text>
+
+    <!-- ===== SAND TIMER (detailed, with red glowing numbers) ===== -->
+    <g id="timerGroup" transform="translate(160,310)">
+      <!-- Timer outer casing -->
+      <rect x="-22" y="-48" width="44" height="96" rx="18" fill="rgba(0,0,0,0.4)" stroke="#666" stroke-width="1.5"/>
+      <!-- Timer inner glass -->
+      <rect x="-17" y="-43" width="34" height="86" rx="14" fill="rgba(0,0,0,0.2)" stroke="#555" stroke-width="0.8"/>
+
+      <!-- Top bulb -->
+      <ellipse cx="0" cy="-28" rx="12" ry="10" fill="rgba(0,0,0,0.15)" stroke="#444" stroke-width="0.5"/>
+      <!-- Bottom bulb -->
+      <ellipse cx="0" cy="28" rx="12" ry="10" fill="rgba(0,0,0,0.15)" stroke="#444" stroke-width="0.5"/>
+
+      <!-- Pinch / neck -->
+      <rect x="-3" y="-5" width="6" height="10" rx="2" fill="rgba(0,0,0,0.3)" stroke="#555" stroke-width="0.5"/>
+
+      <!-- Sand in top -->
+      <g id="sandTop">
+        <ellipse cx="0" cy="-30" rx="8" ry="4" fill="#a855f7" opacity="0.6"/>
+        <ellipse cx="0" cy="-27" rx="7" ry="3" fill="#a855f7" opacity="0.5"/>
+        <ellipse cx="0" cy="-24" rx="5" ry="2" fill="#a855f7" opacity="0.4"/>
+      </g>
+
+      <!-- Falling sand grains -->
+      <circle cx="0" cy="0" r="1" fill="#a855f7" opacity="0.8" id="sandGrain1">
+        <animate attributeName="cy" from="-8" to="18" dur="1.2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" from="0.9" to="0.1" dur="1.2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="-0.5" cy="0" r="0.8" fill="#a855f7" opacity="0.6" id="sandGrain2">
+        <animate attributeName="cy" from="-6" to="20" dur="1.5s" repeatCount="indefinite" begin="0.4s"/>
+        <animate attributeName="opacity" from="0.7" to="0.05" dur="1.5s" repeatCount="indefinite" begin="0.4s"/>
+      </circle>
+      <circle cx="0.3" cy="0" r="0.7" fill="#a855f7" opacity="0.5" id="sandGrain3">
+        <animate attributeName="cy" from="-7" to="19" dur="1.8s" repeatCount="indefinite" begin="0.8s"/>
+        <animate attributeName="opacity" from="0.6" to="0.05" dur="1.8s" repeatCount="indefinite" begin="0.8s"/>
+      </circle>
+
+      <!-- Sand pile in bottom -->
+      <g id="sandBottom">
+        <ellipse cx="0" cy="32" rx="9" ry="4" fill="#a855f7" opacity="0.3"/>
+        <ellipse cx="0" cy="30" rx="7" ry="3" fill="#a855f7" opacity="0.35"/>
+        <ellipse cx="0" cy="28" rx="4" ry="2" fill="#a855f7" opacity="0.4"/>
+      </g>
+
+      <!-- ===== RED GLOWING TIMER NUMBERS ===== -->
+      <!-- "30" on the left side of timer -->
+      <text x="-38" y="-18" fill="#ff2222" font-size="16" font-weight="800" font-family="monospace" filter="url(#redGlow)" style="animation:timerPulse 2s ease-in-out infinite" id="timerNum1">30</text>
+      <text x="-42" y="-4" fill="#ff2222" font-size="8" font-family="system-ui" filter="url(#redGlow)" opacity="0.7" id="timerLabel1">MIN</text>
+
+      <!-- Tick marks around the timer -->
+      <g stroke="#ff2222" stroke-width="1" opacity="0.5" filter="url(#redGlow)" id="timerTicks">
+        <!-- Left ticks (minute markers) -->
+        <line x1="-26" y1="-35" x2="-30" y2="-35"/>
+        <line x1="-26" y1="-20" x2="-30" y2="-20"/>
+        <line x1="-26" y1="-5" x2="-30" y2="-5"/>
+        <line x1="-26" y1="10" x2="-30" y2="10"/>
+        <line x1="-26" y1="25" x2="-30" y2="25"/>
+        <line x1="-26" y1="40" x2="-30" y2="40"/>
+        <!-- Right ticks -->
+        <line x1="26" y1="-35" x2="30" y2="-35"/>
+        <line x1="26" y1="-20" x2="30" y2="-20"/>
+        <line x1="26" y1="-5" x2="30" y2="-5"/>
+        <line x1="26" y1="10" x2="30" y2="10"/>
+        <line x1="26" y1="25" x2="30" y2="25"/>
+        <line x1="26" y1="40" x2="30" y2="40"/>
+      </g>
+
+      <!-- Right side numbers (5 min increments) -->
+      <text x="34" y="-32" fill="#ff2222" font-size="7" font-family="monospace" filter="url(#redGlow)" opacity="0.6" id="tick30">30</text>
+      <text x="34" y="-17" fill="#ff2222" font-size="7" font-family="monospace" filter="url(#redGlow)" opacity="0.6" id="tick25">25</text>
+      <text x="34" y="-2" fill="#ff2222" font-size="7" font-family="monospace" filter="url(#redGlow)" opacity="0.6" id="tick20">20</text>
+      <text x="34" y="13" fill="#ff2222" font-size="7" font-family="monospace" filter="url(#redGlow)" opacity="0.6" id="tick15">15</text>
+      <text x="34" y="28" fill="#ff2222" font-size="7" font-family="monospace" filter="url(#redGlow)" opacity="0.6" id="tick10">10</text>
+      <text x="34" y="43" fill="#ff2222" font-size="7" font-family="monospace" filter="url(#redGlow)" opacity="0.6" id="tick5">5</text>
+
+      <!-- Glowing dot indicator (current time) -->
+      <circle cx="-28" cy="-20" r="2.5" fill="#ff2222" filter="url(#redGlow)" id="timerDot">
+        <animate attributeName="opacity" from="1" to="0.3" dur="1s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+
+    <!-- Timer label below -->
+    <text x="160" y="378" text-anchor="middle" fill="#ff4444" font-size="10" font-weight="700" filter="url(#redGlow)" id="timerCaption">SAND TIMER</text>
+    <text x="160" y="391" text-anchor="middle" fill="#ff4444" font-size="8" opacity="0.6" id="timerSubCaption">Flip phone to reset</text>
+
+    <!-- ===== SPRING CLIPS ===== -->
+    <!-- Left clip -->
+    <rect id="clipL" x="52" y="182" width="16" height="218" rx="4" fill="url(#clipGrad)" stroke="#666" stroke-width="1"/>
+    <g stroke="#555" stroke-width="0.5" opacity="0.7">
+      <line x1="55" y1="200" x2="65" y2="200"/><line x1="55" y1="205" x2="65" y2="205"/>
+      <line x1="55" y1="210" x2="65" y2="210"/><line x1="55" y1="375" x2="65" y2="375"/>
+      <line x1="55" y1="380" x2="65" y2="380"/><line x1="55" y1="385" x2="65" y2="385"/>
+    </g>
+    <path d="M 52 186 C 40 186, 34 198, 34 210 L 34 382 C 34 394, 40 406, 52 406" fill="url(#clipGrad)" stroke="#666" stroke-width="1"/>
+    <!-- Right clip -->
+    <rect id="clipR" x="252" y="182" width="16" height="218" rx="4" fill="url(#clipGrad)" stroke="#666" stroke-width="1"/>
+    <g stroke="#555" stroke-width="0.5" opacity="0.7">
+      <line x1="255" y1="200" x2="265" y2="200"/><line x1="255" y1="205" x2="265" y2="205"/>
+      <line x1="255" y1="210" x2="265" y2="210"/><line x1="255" y1="375" x2="265" y2="375"/>
+      <line x1="255" y1="380" x2="265" y2="380"/><line x1="255" y1="385" x2="265" y2="385"/>
+    </g>
+    <path d="M 268 186 C 280 186, 286 198, 286 210 L 286 382 C 286 394, 280 406, 268 406" fill="url(#clipGrad)" stroke="#666" stroke-width="1"/>
+
+    <!-- Annotations -->
+    <line x1="248" y1="100" x2="278" y2="100" stroke="#7fdbca" stroke-width="0.8"/>
+    <text x="280" y="96" fill="#7fdbca" font-size="9">Clock, notifs, calls</text>
+    <text x="280" y="108" fill="#7fdbca" font-size="9">all still visible</text>
+
+    <line x1="248" y1="250" x2="278" y2="250" stroke="#a855f7" stroke-width="0.8" id="shieldAnnotLine"/>
+    <text x="280" y="246" fill="#a855f7" font-size="9" id="shieldAnnot1">Frosted shield</text>
+    <text x="280" y="258" fill="#a855f7" font-size="9" id="shieldAnnot2">blocks the feed</text>
+
+    <!-- Bottom labels -->
+    <text x="34" y="460" fill="#888" font-size="9" text-anchor="middle">Spring</text>
+    <text x="34" y="472" fill="#888" font-size="9" text-anchor="middle">Clip</text>
+    <line x1="34" y1="410" x2="34" y2="450" stroke="#555" stroke-width="0.5" stroke-dasharray="2,2"/>
+    <text x="286" y="460" fill="#888" font-size="9" text-anchor="middle">Spring</text>
+    <text x="286" y="472" fill="#888" font-size="9" text-anchor="middle">Clip</text>
+    <line x1="286" y1="410" x2="286" y2="450" stroke="#555" stroke-width="0.5" stroke-dasharray="2,2"/>
+
+    <!-- Active color name display -->
+    <rect x="115" y="490" width="90" height="26" rx="13" fill="#1e1e3a" stroke="#555" id="colorNameBg"/>
+    <text x="160" y="507" text-anchor="middle" font-size="12" font-weight="600" id="colorNameText" fill="#c4b5fd">Midnight</text>
+  </svg>
 </div>
 
-<!-- TOP-DOWN VIEW -->
-<div>
-<p style="text-align:center;color:#f7dc6f;font-size:12px;margin-bottom:8px">TOP-DOWN (clip mechanism)</p>
-<svg width="220" height="420" viewBox="0 0 220 200">
-  <!-- Phone cross section -->
-  <rect x="60" y="70" width="100" height="16" rx="3" fill="#555" stroke="#777" stroke-width="1.5"/>
-  <text x="110" y="62" text-anchor="middle" fill="#aaa" font-size="10">Phone (top edge)</text>
+<!-- ===== TIMER DETAIL VIEW ===== -->
+<div class="view-card" style="min-width:280px">
+  <h3>Timer Close-Up</h3>
+  <svg width="260" height="420" viewBox="0 0 260 420">
+    <defs>
+      <filter id="redGlow2"><feGaussianBlur stdDeviation="3" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <radialGradient id="timerBg" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#1a1020"/><stop offset="100%" stop-color="#0a0a15"/>
+      </radialGradient>
+    </defs>
 
-  <!-- Case -->
-  <rect x="54" y="68" width="6" height="20" rx="2" fill="#3a3a5a" stroke="#666"/>
-  <rect x="160" y="68" width="6" height="20" rx="2" fill="#3a3a5a" stroke="#666"/>
-  <text x="42" y="62" text-anchor="end" fill="#aaa" font-size="9">Case</text>
-  <text x="178" y="62" fill="#aaa" font-size="9">Case</text>
+    <!-- Background -->
+    <rect x="30" y="10" width="200" height="400" rx="20" fill="url(#timerBg)" stroke="#2a2a4a" stroke-width="1"/>
+    <text x="130" y="38" text-anchor="middle" fill="#888" font-size="11">Embedded in the frosted shield</text>
 
-  <!-- Shield on front -->
-  <rect x="54" y="60" width="112" height="6" rx="2" fill="rgba(120,80,200,0.5)" stroke="#a855f7" stroke-width="1.5"/>
-  <text x="110" y="52" text-anchor="middle" fill="#a855f7" font-size="9">Shield (front face)</text>
+    <!-- Timer casing (large view) -->
+    <rect x="70" y="55" width="120" height="240" rx="50" fill="rgba(0,0,0,0.3)" stroke="#777" stroke-width="2"/>
+    <!-- Inner glass -->
+    <rect x="80" y="65" width="100" height="220" rx="42" fill="rgba(0,0,0,0.15)" stroke="#555" stroke-width="1"/>
 
-  <!-- Clips wrapping around -->
-  <path d="M 48 60 C 35 60, 28 68, 28 78 C 28 88, 35 96, 48 96" stroke="#ff6b6b" stroke-width="3" fill="none"/>
-  <path d="M 172 60 C 185 60, 192 68, 192 78 C 192 88, 185 96, 172 96" stroke="#ff6b6b" stroke-width="3" fill="none"/>
+    <!-- Top bulb -->
+    <ellipse cx="130" cy="105" rx="35" ry="28" fill="rgba(0,0,0,0.1)" stroke="#444" stroke-width="0.5"/>
+    <!-- Bottom bulb -->
+    <ellipse cx="130" cy="245" rx="35" ry="28" fill="rgba(0,0,0,0.1)" stroke="#444" stroke-width="0.5"/>
 
-  <!-- Spring arrows -->
-  <text x="20" y="80" text-anchor="middle" fill="#ff6b6b" font-size="10">→</text>
-  <text x="200" y="80" text-anchor="middle" fill="#ff6b6b" font-size="10">←</text>
-  <text x="20" y="108" text-anchor="middle" fill="#ff6b6b" font-size="8">squeeze</text>
-  <text x="200" y="108" text-anchor="middle" fill="#ff6b6b" font-size="8">squeeze</text>
+    <!-- Neck -->
+    <rect x="122" y="148" width="16" height="55" rx="6" fill="rgba(0,0,0,0.25)" stroke="#555" stroke-width="0.5"/>
 
-  <!-- How it works -->
-  <rect x="25" y="125" width="170" height="60" rx="8" fill="#1e1e3a" stroke="#555"/>
-  <text x="110" y="143" text-anchor="middle" fill="white" font-size="11" font-weight="bold">How it clips on:</text>
-  <text x="110" y="158" text-anchor="middle" fill="#ccc" font-size="10">Squeeze sides → slides onto phone</text>
-  <text x="110" y="173" text-anchor="middle" fill="#ccc" font-size="10">Release → springs grip the edges</text>
-</svg>
+    <!-- Sand in top bulb -->
+    <g id="sandTopDetail">
+      <ellipse cx="130" cy="95" rx="25" ry="10" fill="#a855f7" opacity="0.5"/>
+      <ellipse cx="130" cy="100" rx="22" ry="8" fill="#a855f7" opacity="0.45"/>
+      <ellipse cx="130" cy="105" rx="18" ry="6" fill="#a855f7" opacity="0.4"/>
+      <ellipse cx="130" cy="110" rx="13" ry="4" fill="#a855f7" opacity="0.35"/>
+      <ellipse cx="130" cy="115" rx="8" ry="3" fill="#a855f7" opacity="0.3"/>
+    </g>
+
+    <!-- Falling grains through neck -->
+    <circle cx="130" cy="155" r="2" fill="#a855f7" opacity="0.8">
+      <animate attributeName="cy" from="140" to="220" dur="1s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" from="0.9" to="0.1" dur="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="129" cy="160" r="1.5" fill="#a855f7" opacity="0.6">
+      <animate attributeName="cy" from="145" to="225" dur="1.3s" repeatCount="indefinite" begin="0.3s"/>
+      <animate attributeName="opacity" from="0.7" to="0.05" dur="1.3s" repeatCount="indefinite" begin="0.3s"/>
+    </circle>
+    <circle cx="131" cy="150" r="1.2" fill="#a855f7" opacity="0.5">
+      <animate attributeName="cy" from="142" to="218" dur="1.6s" repeatCount="indefinite" begin="0.7s"/>
+      <animate attributeName="opacity" from="0.6" to="0.05" dur="1.6s" repeatCount="indefinite" begin="0.7s"/>
+    </circle>
+
+    <!-- Sand pile in bottom -->
+    <g id="sandBottomDetail">
+      <ellipse cx="130" cy="260" rx="28" ry="10" fill="#a855f7" opacity="0.25"/>
+      <ellipse cx="130" cy="256" rx="24" ry="8" fill="#a855f7" opacity="0.3"/>
+      <ellipse cx="130" cy="252" rx="18" ry="6" fill="#a855f7" opacity="0.35"/>
+      <ellipse cx="130" cy="248" rx="12" ry="4" fill="#a855f7" opacity="0.4"/>
+      <ellipse cx="130" cy="245" rx="6" ry="2.5" fill="#a855f7" opacity="0.45"/>
+    </g>
+
+    <!-- ===== RED GLOWING NUMBERS ===== -->
+    <!-- Left column: minute markers -->
+    <text x="52" y="80" fill="#ff2222" font-size="11" font-weight="700" font-family="monospace" filter="url(#redGlow2)">30</text>
+    <text x="52" y="120" fill="#ff2222" font-size="11" font-weight="700" font-family="monospace" filter="url(#redGlow2)">25</text>
+    <text x="52" y="160" fill="#ff2222" font-size="11" font-weight="700" font-family="monospace" filter="url(#redGlow2)">20</text>
+    <text x="52" y="200" fill="#ff2222" font-size="11" font-weight="700" font-family="monospace" filter="url(#redGlow2)">15</text>
+    <text x="52" y="240" fill="#ff2222" font-size="11" font-weight="700" font-family="monospace" filter="url(#redGlow2)">10</text>
+    <text x="56" y="280" fill="#ff2222" font-size="11" font-weight="700" font-family="monospace" filter="url(#redGlow2)">5</text>
+    <text x="56" y="300" fill="#ff2222" font-size="11" font-weight="700" font-family="monospace" filter="url(#redGlow2)">0</text>
+
+    <!-- Right column: tick marks -->
+    <g stroke="#ff2222" stroke-width="1.5" opacity="0.5" filter="url(#redGlow2)">
+      <line x1="195" y1="75" x2="205" y2="75"/>
+      <line x1="195" y1="115" x2="205" y2="115"/>
+      <line x1="195" y1="155" x2="205" y2="155"/>
+      <line x1="195" y1="195" x2="205" y2="195"/>
+      <line x1="195" y1="235" x2="205" y2="235"/>
+      <line x1="195" y1="275" x2="205" y2="275"/>
+      <line x1="195" y1="295" x2="205" y2="295"/>
+    </g>
+
+    <!-- Pulsing current-time indicator -->
+    <circle cx="48" cy="117" r="4" fill="#ff2222" filter="url(#redGlow2)">
+      <animate attributeName="opacity" from="1" to="0.2" dur="1s" repeatCount="indefinite"/>
+      <animate attributeName="r" from="4" to="5.5" dur="1s" repeatCount="indefinite"/>
+    </circle>
+    <text x="210" y="120" fill="#ff4444" font-size="9" font-weight="600" filter="url(#redGlow2)">
+      <animate attributeName="opacity" from="1" to="0.5" dur="1s" repeatCount="indefinite"/>
+      25:00
+    </text>
+
+    <!-- Big centered time display -->
+    <text x="130" y="345" text-anchor="middle" fill="#ff2222" font-size="32" font-weight="900" font-family="monospace" filter="url(#redGlow2)">25:00</text>
+    <text x="130" y="362" text-anchor="middle" fill="#ff4444" font-size="10" opacity="0.7" filter="url(#redGlow2)">MINUTES REMAINING</text>
+
+    <!-- Bottom notes -->
+    <text x="130" y="388" text-anchor="middle" fill="#7fdbca" font-size="10">Printed markings on glass</text>
+    <text x="130" y="403" text-anchor="middle" fill="#888" font-size="9">Red ink catches light = glows naturally</text>
+  </svg>
+</div>
+
+<!-- ===== SIDE CROSS-SECTION ===== -->
+<div class="view-card" style="min-width:260px">
+  <h3>Side Cross-Section</h3>
+  <svg width="240" height="420" viewBox="0 0 240 420">
+    <text x="120" y="25" text-anchor="middle" fill="#888" font-size="10">How it grips the phone</text>
+
+    <!-- Case -->
+    <rect x="85" y="50" width="14" height="280" rx="3" fill="#2a2a4a" stroke="#555" stroke-width="1.5"/>
+    <text x="78" y="195" fill="#888" font-size="9" text-anchor="end" transform="rotate(-90,78,195)">CASE</text>
+    <!-- Phone -->
+    <rect x="99" y="50" width="10" height="280" rx="2" fill="#444" stroke="#666" stroke-width="1"/>
+    <text x="104" y="40" text-anchor="middle" fill="#aaa" font-size="9">Phone</text>
+    <!-- Case other side -->
+    <rect x="109" y="50" width="14" height="280" rx="3" fill="#2a2a4a" stroke="#555" stroke-width="1.5"/>
+
+    <!-- Shield -->
+    <rect x="70" y="120" width="23" height="210" rx="3" fill="rgba(168,85,247,0.25)" stroke="#a855f7" stroke-width="2" id="sideShield"/>
+    <text x="81" y="230" text-anchor="middle" fill="#c4b5fd" font-size="8" transform="rotate(-90,81,230)">FROSTED SHIELD</text>
+
+    <!-- Timer embedded in shield -->
+    <rect x="73" y="200" width="17" height="50" rx="7" fill="rgba(0,0,0,0.3)" stroke="#ff2222" stroke-width="1" filter="url(#redGlow)"/>
+    <text x="81" y="228" text-anchor="middle" fill="#ff2222" font-size="6" font-family="monospace" filter="url(#redGlow)">30</text>
+
+    <!-- Clip arms -->
+    <path d="M 65 120 C 45 120, 38 135, 38 155 L 38 310 C 38 330, 45 345, 65 345" fill="none" stroke="#888" stroke-width="4" stroke-linecap="round"/>
+    <path d="M 38 155 L 38 310" stroke="#666" stroke-width="4"/>
+    <!-- Spring -->
+    <g transform="translate(30,230)" stroke="#f7dc6f" stroke-width="1.5" fill="none">
+      <path d="M 0,-15 L 5,-12 L -5,-8 L 5,-4 L -5,0 L 5,4 L -5,8 L 5,12 L 0,15"/>
+    </g>
+    <text x="15" y="235" fill="#f7dc6f" font-size="8" text-anchor="middle" transform="rotate(-90,15,235)">SPRING</text>
+
+    <!-- Dimension -->
+    <line x1="85" y1="350" x2="123" y2="350" stroke="#f7dc6f" stroke-width="0.8"/>
+    <line x1="85" y1="345" x2="85" y2="355" stroke="#f7dc6f" stroke-width="0.8"/>
+    <line x1="123" y1="345" x2="123" y2="355" stroke="#f7dc6f" stroke-width="0.8"/>
+    <text x="104" y="368" text-anchor="middle" fill="#f7dc6f" font-size="9">8-16mm</text>
+
+    <!-- Fit list -->
+    <g transform="translate(150,80)">
+      <text x="0" y="0" fill="#7fdbca" font-size="11" font-weight="600">Fits over ANY case:</text>
+      <g transform="translate(0,20)">
+        <rect x="0" y="0" width="8" height="8" rx="2" fill="#2a4a2a" stroke="#4a8a4a"/>
+        <text x="14" y="8" fill="#aaa" font-size="10">Bare phone</text>
+      </g>
+      <g transform="translate(0,38)">
+        <rect x="0" y="0" width="8" height="8" rx="2" fill="#2a3a5a" stroke="#4a6a8a"/>
+        <text x="14" y="8" fill="#aaa" font-size="10">Apple / thin</text>
+      </g>
+      <g transform="translate(0,56)">
+        <rect x="0" y="0" width="8" height="8" rx="2" fill="#4a3a2a" stroke="#8a6a4a"/>
+        <text x="14" y="8" fill="#aaa" font-size="10">Casetify</text>
+      </g>
+      <g transform="translate(0,74)">
+        <rect x="0" y="0" width="8" height="8" rx="2" fill="#4a2a2a" stroke="#8a4a4a"/>
+        <text x="14" y="8" fill="#aaa" font-size="10">OtterBox</text>
+      </g>
+      <g transform="translate(0,104)">
+        <text x="0" y="0" fill="#f7dc6f" font-size="10" font-weight="600">Spring auto-adjusts</text>
+        <text x="0" y="16" fill="#888" font-size="10">60mm - 90mm range</text>
+      </g>
+      <g transform="translate(0,145)">
+        <text x="0" y="0" fill="#7fdbca" font-size="11" font-weight="600">How to use:</text>
+        <text x="0" y="20" fill="#ccc" font-size="10">1. Squeeze clips open</text>
+        <text x="0" y="38" fill="#ccc" font-size="10">2. Slide onto phone</text>
+        <text x="0" y="56" fill="#ccc" font-size="10">3. Release - clicks on</text>
+        <text x="0" y="74" fill="#ccc" font-size="10">4. Flip to start timer</text>
+        <text x="0" y="92" fill="#ccc" font-size="10">5. Put phone down</text>
+        <text x="0" y="110" fill="#ccc" font-size="10">6. Live your life</text>
+      </g>
+    </g>
+  </svg>
 </div>
 
 </div>
 
-<!-- INFO PANELS -->
-<div style="max-width:700px;margin:30px auto 0">
-
-<div style="background:#1e1e3a;border:1px solid #555;border-radius:10px;padding:15px;margin-bottom:15px">
-<h3 style="color:#7fdbca;margin-top:0;font-size:14px">Why Spring Clip Wins for Universal Fit</h3>
-<table style="width:100%;font-size:12px;border-collapse:collapse">
-<tr style="border-bottom:1px solid #333">
-  <td style="padding:8px;color:#f7dc6f;font-weight:bold;width:120px">One SKU</td>
-  <td style="padding:8px;color:#ccc">No S/M/L. Spring expands 60mm-90mm. Covers iPhone SE through Galaxy Ultra + any case.</td>
-</tr>
-<tr style="border-bottom:1px solid #333">
-  <td style="padding:8px;color:#f7dc6f;font-weight:bold">Proven tech</td>
-  <td style="padding:8px;color:#ccc">Millions of $3 phone tripod mounts use this exact spring clip from Shenzhen. Tooling already exists.</td>
-</tr>
-<tr style="border-bottom:1px solid #333">
-  <td style="padding:8px;color:#f7dc6f;font-weight:bold">Over cases</td>
-  <td style="padding:8px;color:#ccc">OtterBox, Casetify, Apple leather, MagSafe, clear case, no case — doesn't matter.</td>
-</tr>
-<tr style="border-bottom:1px solid #333">
-  <td style="padding:8px;color:#f7dc6f;font-weight:bold">Satisfying</td>
-  <td style="padding:8px;color:#ccc">The squeeze-and-click is a ritual. "Clipping on my blocker" becomes the TikTok trend itself.</td>
-</tr>
-<tr>
-  <td style="padding:8px;color:#f7dc6f;font-weight:bold">Sand timer</td>
-  <td style="padding:8px;color:#ccc">Embedded mini hourglass in the frosted shield. Flip phone upside down to reset. Colored sand = visual ASMR.</td>
-</tr>
-</table>
+<!-- COMPETITIVE GAP -->
+<div class="gap">
+  <h2>Where This Fits (No One Else Is Here)</h2>
+  <div style="position:relative;height:120px;margin:30px 0">
+    <div style="position:absolute;top:40px;left:0;right:0;height:40px;background:linear-gradient(90deg,#0a2a0a,#1a1a3a,#2a0a0a);border-radius:8px;border:1px solid #333"></div>
+    <div style="position:absolute;top:88px;left:5%;color:#888;font-size:10px">FREE</div>
+    <div style="position:absolute;top:88px;right:3%;color:#888;font-size:10px">$100</div>
+    <div style="position:absolute;left:5%;top:44px;background:#1e3a1e;border:1px solid #4a8a4a;border-radius:6px;padding:4px 8px;font-size:10px;color:#aaa">
+      Foqos<span style="display:block;font-size:9px;color:#666">Free app</span>
+    </div>
+    <div style="position:absolute;left:25%;top:44px;background:#1e1e3a;border:1px solid #555;border-radius:6px;padding:4px 8px;font-size:10px;color:#aaa">
+      Lock Boxes<span style="display:block;font-size:9px;color:#666">$15-35</span>
+    </div>
+    <div style="position:absolute;left:48%;top:30px;background:#2a1a4a;border:2px solid #a855f7;border-radius:8px;padding:6px 12px;font-size:12px;color:#c4b5fd;font-weight:700;box-shadow:0 0 20px rgba(168,85,247,0.3)">
+      DOOM SCROLL<br>BLOCKER<span style="display:block;font-size:9px;color:#888;font-weight:400">$15-18</span>
+    </div>
+    <div style="position:absolute;left:78%;top:44px;background:#3a1e1e;border:1px solid #8a4a4a;border-radius:6px;padding:4px 8px;font-size:10px;color:#aaa">
+      Brick<span style="display:block;font-size:9px;color:#666">$59-99</span>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:10px">
+    <p style="color:#7fdbca;font-size:13px">Lock boxes remove your phone entirely. Apps require willpower.</p>
+    <p style="color:#c4b5fd;font-size:14px;font-weight:600;margin-top:6px">We let you keep your phone, but kill the scroll.</p>
+  </div>
 </div>
 
-<div style="background:#1e1e3a;border:1px solid #555;border-radius:10px;padding:15px">
-<h3 style="color:#7fdbca;margin-top:0;font-size:14px">Manufacturing Specs</h3>
-<table style="width:100%;font-size:12px;border-collapse:collapse">
-<tr style="border-bottom:1px solid #333">
-  <td style="padding:6px;color:#f7dc6f;width:120px">Shield</td>
-  <td style="padding:6px;color:#ccc">Frosted translucent polycarbonate, 1.5mm thick</td>
-</tr>
-<tr style="border-bottom:1px solid #333">
-  <td style="padding:6px;color:#f7dc6f">Frame/clips</td>
-  <td style="padding:6px;color:#ccc">ABS plastic + stainless steel spring</td>
-</tr>
-<tr style="border-bottom:1px solid #333">
-  <td style="padding:6px;color:#f7dc6f">Sand timer</td>
-  <td style="padding:6px;color:#ccc">Glass micro-vial (25x10mm) + colored sand, press-fit into shield</td>
-</tr>
-<tr style="border-bottom:1px solid #333">
-  <td style="padding:6px;color:#f7dc6f">Weight</td>
-  <td style="padding:6px;color:#ccc">~30-40g (barely noticeable)</td>
-</tr>
-<tr style="border-bottom:1px solid #333">
-  <td style="padding:6px;color:#f7dc6f">BOM cost</td>
-  <td style="padding:6px;color:#ccc">$2-3 at 1,000+ units from Shenzhen</td>
-</tr>
-<tr>
-  <td style="padding:6px;color:#f7dc6f">Retail</td>
-  <td style="padding:6px;color:#ccc;font-weight:bold">$15-18 → 5-6x margin</td>
-</tr>
-</table>
+<!-- FEATURES -->
+<div class="features">
+  <h2>Why It Works on TikTok</h2>
+  <div class="feat-grid">
+    <div class="feat"><div class="icon">&#9201;</div><div class="label">Sand Timer = Visual Hook</div><div class="desc">The falling sand is ASMR gold. Colored sand options. Flip your phone to reset. 15-second TikTok writes itself.</div></div>
+    <div class="feat"><div class="icon">&#128274;</div><div class="label">Clip-On Ritual</div><div class="desc">The satisfying click of clipping it on becomes the trend. "POV: clipping on my doom scroll blocker before bed."</div></div>
+    <div class="feat"><div class="icon">&#128242;</div><div class="label">Phone Still Works</div><div class="desc">Clock, notifications, calls all visible. Not a prison -- a filter. You choose when to remove it.</div></div>
+    <div class="feat"><div class="icon">&#127793;</div><div class="label">No App, No Battery</div><div class="desc">Pure analog. Zero tech. Works forever. Nothing to charge, pair, update, or subscribe to.</div></div>
+    <div class="feat"><div class="icon">&#128176;</div><div class="label">Impulse Price</div><div class="desc">$15-18 retail. Under the "just buy it" threshold. $2-3 COGS = 5-6x margin even after fulfillment.</div></div>
+    <div class="feat"><div class="icon">&#127758;</div><div class="label">Universal Fit</div><div class="desc">One SKU. Spring clip expands 60-90mm. iPhone, Samsung, Pixel, any case. Zero returns for "wrong size."</div></div>
+  </div>
 </div>
 
+<!-- SPECS -->
+<div class="specs">
+  <h2>Manufacturing Specs</h2>
+  <div class="spec-row"><span class="k">Shield</span><span class="v">Frosted polycarbonate, 1.5mm thick</span></div>
+  <div class="spec-row"><span class="k">Frame + Clips</span><span class="v">ABS plastic + stainless steel spring</span></div>
+  <div class="spec-row"><span class="k">Sand Timer</span><span class="v">Glass micro-vial 25x10mm + colored sand</span></div>
+  <div class="spec-row"><span class="k">Clip Range</span><span class="v">60mm - 90mm (covers all phones + cases)</span></div>
+  <div class="spec-row"><span class="k">Weight</span><span class="v">~30-40g</span></div>
+  <div class="spec-row"><span class="k">BOM (1,000 units)</span><span class="v">$2-3 per unit</span></div>
+  <div class="spec-row"><span class="k">Retail Price</span><span class="v">$15-18</span></div>
+  <div class="spec-row"><span class="k">Margin</span><span class="v">5-6x (before fulfillment)</span></div>
+  <div class="spec-row"><span class="k">Timer Options</span><span class="v">30 min / 60 min</span></div>
+  <div class="spec-row"><span class="k">Colors</span><span class="v">Midnight, Ocean, Forest, Sunset, Clear</span></div>
+  <div class="spec-row"><span class="k">Sourcing</span><span class="v">Shenzhen / 1688.com (existing tooling)</span></div>
 </div>
+
+<footer>DOOM SCROLL BLOCKER &mdash; Concept v2 &mdash; Feb 25, 2026<br>Clip it on. Flip the timer. Take your life back.</footer>
+
+<script>
+const colors = {
+  midnight: { main:'#a855f7', shield1:'rgba(168,85,247,0.35)', shield2:'rgba(168,85,247,0.15)', sand:'#a855f7', name:'Midnight', nameFill:'#c4b5fd', borderHex:'#a855f7' },
+  ocean:    { main:'#3b82f6', shield1:'rgba(59,130,246,0.35)',  shield2:'rgba(59,130,246,0.15)',  sand:'#3b82f6', name:'Ocean',    nameFill:'#93c5fd', borderHex:'#3b82f6' },
+  forest:   { main:'#22c55e', shield1:'rgba(34,197,94,0.35)',   shield2:'rgba(34,197,94,0.15)',   sand:'#22c55e', name:'Forest',   nameFill:'#86efac', borderHex:'#22c55e' },
+  sunset:   { main:'#f97316', shield1:'rgba(249,115,22,0.35)',  shield2:'rgba(249,115,22,0.15)',  sand:'#f97316', name:'Sunset',   nameFill:'#fdba74', borderHex:'#f97316' },
+  clear:    { main:'#d4af37', shield1:'rgba(212,175,55,0.25)',  shield2:'rgba(212,175,55,0.1)',   sand:'#d4af37', name:'Clear',    nameFill:'#fde68a', borderHex:'#888' }
+};
+
+function setColor(key) {
+  const c = colors[key];
+  if (!c) return;
+
+  // Update active button
+  document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`[data-color="${key}"]`).classList.add('active');
+
+  // Shield gradient
+  document.getElementById('shieldStop1').setAttribute('stop-color', c.shield1);
+  document.getElementById('shieldStop2').setAttribute('stop-color', c.shield2);
+
+  // Shield stroke
+  document.getElementById('shield').setAttribute('stroke', c.main);
+  document.getElementById('dividerLine').setAttribute('stroke', c.main);
+  document.getElementById('dividerBadgeBg').setAttribute('stroke', c.main);
+
+  // Blocked text
+  document.getElementById('blockedText1').setAttribute('fill', c.main);
+  document.getElementById('blockedText2').setAttribute('fill', c.main);
+
+  // Sand colors (main product view)
+  document.querySelectorAll('#sandTop ellipse, #sandBottom ellipse').forEach(el => el.setAttribute('fill', c.sand));
+  ['sandGrain1','sandGrain2','sandGrain3'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.setAttribute('fill', c.sand);
+  });
+
+  // Sand colors (detail view)
+  document.querySelectorAll('#sandTopDetail ellipse, #sandBottomDetail ellipse').forEach(el => el.setAttribute('fill', c.sand));
+  // Detail falling grains
+  document.querySelectorAll('#productSvg ~ svg circle[fill]').forEach(el => {
+    // skip non-sand elements
+  });
+
+  // Shield annotation
+  document.getElementById('shieldAnnotLine').setAttribute('stroke', c.main);
+  document.getElementById('shieldAnnot1').setAttribute('fill', c.main);
+  document.getElementById('shieldAnnot2').setAttribute('fill', c.main);
+
+  // Color name
+  document.getElementById('colorNameText').textContent = c.name;
+  document.getElementById('colorNameText').setAttribute('fill', c.nameFill);
+  document.getElementById('colorNameBg').setAttribute('stroke', c.main);
+
+  // Side view shield
+  const sideShield = document.getElementById('sideShield');
+  if (sideShield) sideShield.setAttribute('stroke', c.main);
+
+  // Divider badge text
+  document.getElementById('dividerBadge').setAttribute('fill', c.nameFill);
+}
+</script>
+
 </body></html>

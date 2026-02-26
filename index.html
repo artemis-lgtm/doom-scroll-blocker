@@ -1,206 +1,437 @@
 <!DOCTYPE html>
-<html><head><meta charset="utf-8"><title>Doom Scroll Blocker — Concept</title></head>
-<body style="background:#1a1a2e;color:#e0e0e0;font-family:system-ui;padding:20px;margin:0">
-<h2 style="text-align:center;color:#7fdbca;margin-bottom:5px">DOOM SCROLL BLOCKER</h2>
-<p style="text-align:center;color:#888;font-size:13px;margin-top:0">Universal Clip-On Design — Fits All Phones + Cases</p>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SCROLL SHIELD — Concept Design</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0a0a0f; color:#e0e0e8; font-family:'Inter',system-ui,sans-serif; overflow-x:hidden; }
 
-<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:40px;margin-top:20px">
+  /* Subtle grid background */
+  body::before {
+    content:''; position:fixed; inset:0; z-index:0;
+    background: 
+      linear-gradient(rgba(255,255,255,.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.015) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events:none;
+  }
 
-<!-- FRONT VIEW -->
-<div>
-<p style="text-align:center;color:#f7dc6f;font-size:12px;margin-bottom:8px">FRONT VIEW (on phone)</p>
-<svg width="240" height="420" viewBox="0 0 240 420">
-  <!-- Phone body -->
-  <rect x="40" y="10" width="160" height="350" rx="22" fill="#2a2a4a" stroke="#555" stroke-width="2"/>
-  <!-- Screen -->
-  <rect x="50" y="28" width="140" height="318" rx="5" fill="#111" stroke="#333"/>
+  .container { max-width:800px; margin:0 auto; padding:20px 16px; position:relative; z-index:1; }
 
-  <!-- Visible zone -->
-  <text x="120" y="55" text-anchor="middle" fill="#aaa" font-size="10">Clock + Notifications</text>
-  <text x="120" y="82" text-anchor="middle" fill="white" font-size="22" font-weight="bold">9:41</text>
-  <text x="120" y="102" text-anchor="middle" fill="#6f6" font-size="10">📩 2 new messages</text>
+  /* Header */
+  .header { text-align:center; padding:40px 0 30px; }
+  .brand { font-size:11px; letter-spacing:6px; color:#666; text-transform:uppercase; margin-bottom:8px; }
+  h1 { font-size:32px; font-weight:300; letter-spacing:2px; color:#fff; }
+  h1 span { font-weight:600; background:linear-gradient(135deg,#a78bfa,#6366f1); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .tagline { font-size:13px; color:#555; margin-top:8px; letter-spacing:1px; }
 
-  <!-- Divider line -->
-  <line x1="50" y1="118" x2="190" y2="118" stroke="#f7dc6f" stroke-width="2" stroke-dasharray="6,3"/>
-  <text x="120" y="113" text-anchor="middle" fill="#f7dc6f" font-size="9">▲ VISIBLE ▲</text>
+  /* Phone mockup */
+  .phone-section { display:flex; flex-direction:column; align-items:center; gap:40px; margin:40px 0; }
 
-  <!-- Blocked zone -->
-  <rect x="40" y="118" width="160" height="228" fill="rgba(120,80,200,0.28)" stroke="#a855f7" stroke-width="2.5"/>
-  <text x="120" y="165" text-anchor="middle" fill="#a855f7" font-size="15" font-weight="bold">BLOCKED ZONE</text>
-  <text x="120" y="185" text-anchor="middle" fill="#a855f7" font-size="10">Frosted translucent plastic</text>
-  <text x="120" y="200" text-anchor="middle" fill="#a855f7" font-size="10">Can't see feed = can't scroll</text>
+  .phone-wrap { position:relative; }
+  .phone-label { text-align:center; font-size:11px; letter-spacing:3px; color:#555; text-transform:uppercase; margin-bottom:12px; }
 
-  <!-- Sand timer -->
-  <rect x="106" y="225" width="28" height="60" rx="12" fill="none" stroke="#f7dc6f" stroke-width="1.5"/>
-  <line x1="106" y1="255" x2="134" y2="255" stroke="#f7dc6f" stroke-width="1" stroke-dasharray="3,2"/>
-  <!-- Top sand -->
-  <circle cx="120" cy="238" r="3.5" fill="#f7dc6f"/>
-  <circle cx="120" cy="245" r="2.5" fill="#f7dc6f" opacity="0.7"/>
-  <circle cx="117" cy="250" r="2" fill="#f7dc6f" opacity="0.5"/>
-  <!-- Bottom sand pile -->
-  <circle cx="118" cy="272" r="4" fill="#f7dc6f" opacity="0.3"/>
-  <circle cx="123" cy="275" r="3" fill="#f7dc6f" opacity="0.25"/>
-  <circle cx="115" cy="277" r="3" fill="#f7dc6f" opacity="0.2"/>
+  /* The main phone SVG */
+  .phone-svg { display:block; filter: drop-shadow(0 20px 60px rgba(99,102,241,.15)); }
 
-  <text x="148" y="248" fill="#7fdbca" font-size="10">Mini sand</text>
-  <text x="148" y="261" fill="#7fdbca" font-size="10">timer</text>
-  <text x="148" y="274" fill="#7fdbca" font-size="10">(30 or 60 min)</text>
+  /* Views row */
+  .views-row { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin:30px 0; }
 
-  <!-- Left spring clip -->
-  <path d="M 25 128 L 40 128" stroke="#ff6b6b" stroke-width="3"/>
-  <path d="M 25 128 L 25 336" stroke="#ff6b6b" stroke-width="3"/>
-  <path d="M 25 336 L 40 336" stroke="#ff6b6b" stroke-width="3"/>
-  <text x="15" y="240" fill="#ff6b6b" font-size="10" transform="rotate(-90,15,240)">SPRING CLIP</text>
+  /* Info cards */
+  .card { background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.06); border-radius:16px; padding:24px; margin-bottom:16px; }
+  .card h3 { font-size:13px; letter-spacing:3px; text-transform:uppercase; color:#a78bfa; margin-bottom:16px; font-weight:500; }
 
-  <!-- Right spring clip -->
-  <path d="M 215 128 L 200 128" stroke="#ff6b6b" stroke-width="3"/>
-  <path d="M 215 128 L 215 336" stroke="#ff6b6b" stroke-width="3"/>
-  <path d="M 215 336 L 200 336" stroke="#ff6b6b" stroke-width="3"/>
-  <text x="225" y="240" fill="#ff6b6b" font-size="10" transform="rotate(90,225,240)">SPRING CLIP</text>
+  .spec-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media(max-width:500px) { .spec-grid { grid-template-columns:1fr; } }
 
-  <!-- Bottom note -->
-  <rect x="50" y="370" width="140" height="40" rx="8" fill="#1e1e3a" stroke="#555"/>
-  <text x="120" y="388" text-anchor="middle" fill="#888" font-size="10">Spring clips auto-adjust</text>
-  <text x="120" y="402" text-anchor="middle" fill="#f7dc6f" font-size="11" font-weight="bold">One SKU fits all phones</text>
-</svg>
-</div>
+  .spec-item { }
+  .spec-label { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:#555; margin-bottom:4px; }
+  .spec-value { font-size:14px; color:#ccc; font-weight:300; line-height:1.5; }
 
-<!-- SIDE VIEW -->
-<div>
-<p style="text-align:center;color:#f7dc6f;font-size:12px;margin-bottom:8px">SIDE VIEW (cross-section)</p>
-<svg width="200" height="420" viewBox="0 0 200 420">
-  <!-- Case left -->
-  <rect x="55" y="20" width="10" height="310" rx="2" fill="#3a3a5a" stroke="#666"/>
-  <text x="42" y="45" fill="#aaa" font-size="10" text-anchor="end">Case</text>
+  /* Color options */
+  .colors { display:flex; gap:12px; justify-content:center; margin:30px 0; }
+  .color-dot { width:32px; height:32px; border-radius:50%; border:2px solid transparent; cursor:pointer; transition:all .2s; }
+  .color-dot:hover, .color-dot.active { border-color:#fff; transform:scale(1.15); }
+  .color-name { text-align:center; font-size:11px; color:#555; letter-spacing:1px; margin-top:8px; }
 
-  <!-- Phone -->
-  <rect x="65" y="20" width="12" height="310" rx="2" fill="#555" stroke="#777"/>
-  <text x="95" y="45" fill="#aaa" font-size="10">Phone</text>
+  /* Features list */
+  .features { list-style:none; }
+  .features li { padding:12px 0; border-bottom:1px solid rgba(255,255,255,.04); font-size:14px; color:#999; font-weight:300; display:flex; gap:12px; align-items:flex-start; }
+  .features li:last-child { border-bottom:none; }
+  .features .icon { color:#a78bfa; font-size:16px; flex-shrink:0; width:20px; text-align:center; }
 
-  <!-- Case right -->
-  <rect x="77" y="20" width="10" height="310" rx="2" fill="#3a3a5a" stroke="#666"/>
+  /* Comparison */
+  .compare-row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:rgba(255,255,255,.04); border-radius:12px; overflow:hidden; margin-top:16px; }
+  .compare-cell { background:#0a0a0f; padding:16px 12px; text-align:center; }
+  .compare-cell.header { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:#555; }
+  .compare-cell .val { font-size:20px; font-weight:600; color:#fff; }
+  .compare-cell .label { font-size:10px; color:#555; margin-top:4px; letter-spacing:1px; text-transform:uppercase; }
+  .compare-cell.highlight .val { color:#a78bfa; }
 
-  <!-- Shield (blocker) on front -->
-  <rect x="42" y="118" width="55" height="212" rx="3" fill="rgba(120,80,200,0.3)" stroke="#a855f7" stroke-width="2"/>
-  <text x="69" y="228" text-anchor="middle" fill="#7fdbca" font-size="9" transform="rotate(-90,69,228)">Frosted shield</text>
+  .section-title { text-align:center; font-size:11px; letter-spacing:4px; color:#444; text-transform:uppercase; margin:50px 0 20px; }
 
-  <!-- Left clip -->
-  <path d="M 40 118 C 25 118, 20 130, 20 148 L 20 310 C 20 328, 25 340, 40 340" stroke="#ff6b6b" stroke-width="3" fill="none"/>
-  <text x="10" y="235" fill="#ff6b6b" font-size="9" transform="rotate(-90,10,235)">Clip</text>
+  /* Material callout */
+  .material-strip { display:flex; gap:2px; border-radius:12px; overflow:hidden; margin:20px 0; }
+  .mat-block { flex:1; padding:20px 12px; text-align:center; background:rgba(255,255,255,.02); }
+  .mat-block .mat-name { font-size:11px; color:#a78bfa; letter-spacing:1px; margin-bottom:4px; }
+  .mat-block .mat-desc { font-size:11px; color:#555; line-height:1.4; }
+</style>
+</head>
+<body>
 
-  <!-- Right clip -->
-  <path d="M 100 118 C 115 118, 120 130, 120 148 L 120 310 C 120 328, 115 340, 100 340" stroke="#ff6b6b" stroke-width="3" fill="none"/>
-  <text x="132" y="235" fill="#ff6b6b" font-size="9" transform="rotate(-90,132,235)">Clip</text>
+<div class="container">
 
-  <!-- Dimension line -->
-  <line x1="20" y1="360" x2="120" y2="360" stroke="#f7dc6f" stroke-width="1" stroke-dasharray="4,2"/>
-  <path d="M 20 355 L 20 365" stroke="#f7dc6f" stroke-width="1"/>
-  <path d="M 120 355 L 120 365" stroke="#f7dc6f" stroke-width="1"/>
-  <text x="70" y="378" text-anchor="middle" fill="#f7dc6f" font-size="10">Clips expand 8-16mm</text>
-  <text x="70" y="393" text-anchor="middle" fill="#f7dc6f" font-size="10">Fits naked → OtterBox</text>
+  <div class="header">
+    <div class="brand">Concept Design v2</div>
+    <h1>SCROLL <span>SHIELD</span></h1>
+    <div class="tagline">Block the feed. Keep the phone.</div>
+  </div>
 
-  <!-- Note -->
-  <rect x="15" y="400" width="170" height="18" rx="5" fill="#1e1e3a" stroke="#555"/>
-  <text x="100" y="413" text-anchor="middle" fill="#7fdbca" font-size="9">Same as phone tripod mount mechanism</text>
-</svg>
-</div>
+  <!-- MAIN PHONE MOCKUP — FRONT VIEW -->
+  <div class="phone-section">
+    <div class="phone-wrap">
+      <div class="phone-label">Front View — On Phone</div>
+      <svg class="phone-svg" width="280" height="520" viewBox="0 0 280 520">
+        <defs>
+          <linearGradient id="shellGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#1a1a2a"/>
+            <stop offset="100%" stop-color="#111118"/>
+          </linearGradient>
+          <linearGradient id="shieldGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="rgba(167,139,250,0.12)"/>
+            <stop offset="100%" stop-color="rgba(99,102,241,0.08)"/>
+          </linearGradient>
+          <linearGradient id="edgeGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#333"/>
+            <stop offset="50%" stop-color="#222"/>
+            <stop offset="100%" stop-color="#333"/>
+          </linearGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="softglow">
+            <feGaussianBlur stdDeviation="6" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <clipPath id="screenClip">
+            <rect x="22" y="18" width="236" height="462" rx="18"/>
+          </clipPath>
+        </defs>
 
-<!-- TOP-DOWN VIEW -->
-<div>
-<p style="text-align:center;color:#f7dc6f;font-size:12px;margin-bottom:8px">TOP-DOWN (clip mechanism)</p>
-<svg width="220" height="420" viewBox="0 0 220 200">
-  <!-- Phone cross section -->
-  <rect x="60" y="70" width="100" height="16" rx="3" fill="#555" stroke="#777" stroke-width="1.5"/>
-  <text x="110" y="62" text-anchor="middle" fill="#aaa" font-size="10">Phone (top edge)</text>
+        <!-- Phone body -->
+        <rect x="10" y="5" width="260" height="490" rx="36" fill="url(#shellGrad)" stroke="#2a2a35" stroke-width="1.5"/>
+        
+        <!-- Screen -->
+        <rect x="22" y="18" width="236" height="462" rx="18" fill="#050508"/>
 
-  <!-- Case -->
-  <rect x="54" y="68" width="6" height="20" rx="2" fill="#3a3a5a" stroke="#666"/>
-  <rect x="160" y="68" width="6" height="20" rx="2" fill="#3a3a5a" stroke="#666"/>
-  <text x="42" y="62" text-anchor="end" fill="#aaa" font-size="9">Case</text>
-  <text x="178" y="62" fill="#aaa" font-size="9">Case</text>
+        <!-- Dynamic Island -->
+        <rect x="108" y="26" width="64" height="22" rx="11" fill="#0a0a0f"/>
 
-  <!-- Shield on front -->
-  <rect x="54" y="60" width="112" height="6" rx="2" fill="rgba(120,80,200,0.5)" stroke="#a855f7" stroke-width="1.5"/>
-  <text x="110" y="52" text-anchor="middle" fill="#a855f7" font-size="9">Shield (front face)</text>
+        <!-- Status bar content -->
+        <text x="42" y="40" fill="#888" font-size="12" font-weight="500" font-family="Inter,system-ui">9:41</text>
+        <text x="226" y="40" fill="#888" font-size="11" font-family="Inter,system-ui" text-anchor="end">●●●</text>
 
-  <!-- Clips wrapping around -->
-  <path d="M 48 60 C 35 60, 28 68, 28 78 C 28 88, 35 96, 48 96" stroke="#ff6b6b" stroke-width="3" fill="none"/>
-  <path d="M 172 60 C 185 60, 192 68, 192 78 C 192 88, 185 96, 172 96" stroke="#ff6b6b" stroke-width="3" fill="none"/>
+        <!-- Notification previews in visible zone -->
+        <rect x="34" y="58" width="212" height="42" rx="10" fill="rgba(255,255,255,.04)"/>
+        <circle cx="52" cy="79" r="10" fill="rgba(99,102,241,.2)"/>
+        <text x="52" y="83" text-anchor="middle" fill="#a78bfa" font-size="10">💬</text>
+        <text x="70" y="74" fill="#999" font-size="10" font-weight="500">Messages</text>
+        <text x="70" y="88" fill="#555" font-size="9">Van: Hey are you coming home...</text>
 
-  <!-- Spring arrows -->
-  <text x="20" y="80" text-anchor="middle" fill="#ff6b6b" font-size="10">→</text>
-  <text x="200" y="80" text-anchor="middle" fill="#ff6b6b" font-size="10">←</text>
-  <text x="20" y="108" text-anchor="middle" fill="#ff6b6b" font-size="8">squeeze</text>
-  <text x="200" y="108" text-anchor="middle" fill="#ff6b6b" font-size="8">squeeze</text>
+        <rect x="34" y="106" width="212" height="42" rx="10" fill="rgba(255,255,255,.04)"/>
+        <circle cx="52" cy="127" r="10" fill="rgba(34,197,94,.15)"/>
+        <text x="52" y="131" text-anchor="middle" fill="#22c55e" font-size="10">📞</text>
+        <text x="70" y="122" fill="#999" font-size="10" font-weight="500">Missed Call</text>
+        <text x="70" y="136" fill="#555" font-size="9">Dad • 2 min ago</text>
 
-  <!-- How it works -->
-  <rect x="25" y="125" width="170" height="60" rx="8" fill="#1e1e3a" stroke="#555"/>
-  <text x="110" y="143" text-anchor="middle" fill="white" font-size="11" font-weight="bold">How it clips on:</text>
-  <text x="110" y="158" text-anchor="middle" fill="#ccc" font-size="10">Squeeze sides → slides onto phone</text>
-  <text x="110" y="173" text-anchor="middle" fill="#ccc" font-size="10">Release → springs grip the edges</text>
-</svg>
-</div>
+        <!-- ═══════════ THE SHIELD ═══════════ -->
+        <!-- Shield body — frosted panel -->
+        <rect x="10" y="158" width="260" height="337" rx="0 0 36 36" fill="url(#shieldGrad)" stroke="rgba(167,139,250,.2)" stroke-width="1"/>
+        
+        <!-- Frosted texture lines (subtle) -->
+        <g opacity="0.04" clip-path="url(#screenClip)">
+          <line x1="22" y1="180" x2="258" y2="180" stroke="#fff" stroke-width="0.5"/>
+          <line x1="22" y1="200" x2="258" y2="200" stroke="#fff" stroke-width="0.5"/>
+          <line x1="22" y1="220" x2="258" y2="220" stroke="#fff" stroke-width="0.5"/>
+          <line x1="22" y1="240" x2="258" y2="240" stroke="#fff" stroke-width="0.5"/>
+          <line x1="22" y1="260" x2="258" y2="260" stroke="#fff" stroke-width="0.5"/>
+          <line x1="22" y1="280" x2="258" y2="280" stroke="#fff" stroke-width="0.5"/>
+          <line x1="22" y1="300" x2="258" y2="300" stroke="#fff" stroke-width="0.5"/>
+          <line x1="22" y1="320" x2="258" y2="320" stroke="#fff" stroke-width="0.5"/>
+          <line x1="22" y1="340" x2="258" y2="340" stroke="#fff" stroke-width="0.5"/>
+          <line x1="22" y1="360" x2="258" y2="360" stroke="#fff" stroke-width="0.5"/>
+          <line x1="22" y1="380" x2="258" y2="380" stroke="#fff" stroke-width="0.5"/>
+          <line x1="22" y1="400" x2="258" y2="400" stroke="#fff" stroke-width="0.5"/>
+          <line x1="22" y1="420" x2="258" y2="420" stroke="#fff" stroke-width="0.5"/>
+          <line x1="22" y1="440" x2="258" y2="440" stroke="#fff" stroke-width="0.5"/>
+          <line x1="22" y1="460" x2="258" y2="460" stroke="#fff" stroke-width="0.5"/>
+        </g>
 
-</div>
+        <!-- Shield edge — the premium rail -->
+        <!-- Left rail -->
+        <rect x="5" y="158" width="5" height="337" rx="2.5" fill="url(#edgeGrad)"/>
+        <!-- Right rail -->
+        <rect x="270" y="158" width="5" height="337" rx="2.5" fill="url(#edgeGrad)"/>
 
-<!-- INFO PANELS -->
-<div style="max-width:700px;margin:30px auto 0">
+        <!-- Transition line — the premium detail -->
+        <line x1="10" y1="158" x2="270" y2="158" stroke="rgba(167,139,250,.3)" stroke-width="0.5" filter="url(#glow)"/>
 
-<div style="background:#1e1e3a;border:1px solid #555;border-radius:10px;padding:15px;margin-bottom:15px">
-<h3 style="color:#7fdbca;margin-top:0;font-size:14px">Why Spring Clip Wins for Universal Fit</h3>
-<table style="width:100%;font-size:12px;border-collapse:collapse">
-<tr style="border-bottom:1px solid #333">
-  <td style="padding:8px;color:#f7dc6f;font-weight:bold;width:120px">One SKU</td>
-  <td style="padding:8px;color:#ccc">No S/M/L. Spring expands 60mm-90mm. Covers iPhone SE through Galaxy Ultra + any case.</td>
-</tr>
-<tr style="border-bottom:1px solid #333">
-  <td style="padding:8px;color:#f7dc6f;font-weight:bold">Proven tech</td>
-  <td style="padding:8px;color:#ccc">Millions of $3 phone tripod mounts use this exact spring clip from Shenzhen. Tooling already exists.</td>
-</tr>
-<tr style="border-bottom:1px solid #333">
-  <td style="padding:8px;color:#f7dc6f;font-weight:bold">Over cases</td>
-  <td style="padding:8px;color:#ccc">OtterBox, Casetify, Apple leather, MagSafe, clear case, no case — doesn't matter.</td>
-</tr>
-<tr style="border-bottom:1px solid #333">
-  <td style="padding:8px;color:#f7dc6f;font-weight:bold">Satisfying</td>
-  <td style="padding:8px;color:#ccc">The squeeze-and-click is a ritual. "Clipping on my blocker" becomes the TikTok trend itself.</td>
-</tr>
-<tr>
-  <td style="padding:8px;color:#f7dc6f;font-weight:bold">Sand timer</td>
-  <td style="padding:8px;color:#ccc">Embedded mini hourglass in the frosted shield. Flip phone upside down to reset. Colored sand = visual ASMR.</td>
-</tr>
-</table>
-</div>
+        <!-- Subtle "SCROLL SHIELD" branding embossed -->
+        <text x="140" y="188" text-anchor="middle" fill="rgba(167,139,250,.12)" font-size="8" letter-spacing="6" font-weight="600">SCROLL SHIELD</text>
 
-<div style="background:#1e1e3a;border:1px solid #555;border-radius:10px;padding:15px">
-<h3 style="color:#7fdbca;margin-top:0;font-size:14px">Manufacturing Specs</h3>
-<table style="width:100%;font-size:12px;border-collapse:collapse">
-<tr style="border-bottom:1px solid #333">
-  <td style="padding:6px;color:#f7dc6f;width:120px">Shield</td>
-  <td style="padding:6px;color:#ccc">Frosted translucent polycarbonate, 1.5mm thick</td>
-</tr>
-<tr style="border-bottom:1px solid #333">
-  <td style="padding:6px;color:#f7dc6f">Frame/clips</td>
-  <td style="padding:6px;color:#ccc">ABS plastic + stainless steel spring</td>
-</tr>
-<tr style="border-bottom:1px solid #333">
-  <td style="padding:6px;color:#f7dc6f">Sand timer</td>
-  <td style="padding:6px;color:#ccc">Glass micro-vial (25x10mm) + colored sand, press-fit into shield</td>
-</tr>
-<tr style="border-bottom:1px solid #333">
-  <td style="padding:6px;color:#f7dc6f">Weight</td>
-  <td style="padding:6px;color:#ccc">~30-40g (barely noticeable)</td>
-</tr>
-<tr style="border-bottom:1px solid #333">
-  <td style="padding:6px;color:#f7dc6f">BOM cost</td>
-  <td style="padding:6px;color:#ccc">$2-3 at 1,000+ units from Shenzhen</td>
-</tr>
-<tr>
-  <td style="padding:6px;color:#f7dc6f">Retail</td>
-  <td style="padding:6px;color:#ccc;font-weight:bold">$15-18 → 5-6x margin</td>
-</tr>
-</table>
-</div>
+        <!-- Sand Timer — minimal, elegant -->
+        <g transform="translate(140,310)">
+          <!-- Outer capsule -->
+          <rect x="-14" y="-40" width="28" height="80" rx="14" fill="none" stroke="rgba(167,139,250,.25)" stroke-width="1"/>
+          <!-- Inner glass -->
+          <rect x="-10" y="-36" width="20" height="72" rx="10" fill="rgba(167,139,250,.04)"/>
+          <!-- Neck -->
+          <rect x="-3" y="-3" width="6" height="6" rx="1" fill="rgba(167,139,250,.08)"/>
+          <!-- Top sand -->
+          <circle cx="0" cy="-16" r="4" fill="rgba(167,139,250,.2)"/>
+          <circle cx="0" cy="-10" r="3" fill="rgba(167,139,250,.15)"/>
+          <circle cx="-2" cy="-5" r="2" fill="rgba(167,139,250,.1)"/>
+          <!-- Falling grain -->
+          <circle cx="0" cy="6" r="1" fill="rgba(167,139,250,.3)">
+            <animate attributeName="cy" values="4;16" dur="2s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.4;0" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          <!-- Bottom pile -->
+          <ellipse cx="0" cy="26" rx="7" ry="4" fill="rgba(167,139,250,.12)"/>
+          <ellipse cx="0" cy="24" rx="5" ry="3" fill="rgba(167,139,250,.18)"/>
+        </g>
+
+        <!-- Timer label -->
+        <text x="140" y="375" text-anchor="middle" fill="rgba(167,139,250,.15)" font-size="7" letter-spacing="3">30 MIN</text>
+
+        <!-- Bottom rounded corners of shield match phone -->
+        <!-- Clip indicator dots -->
+        <circle cx="8" cy="320" r="2" fill="rgba(167,139,250,.2)"/>
+        <circle cx="272" cy="320" r="2" fill="rgba(167,139,250,.2)"/>
+
+        <!-- Callout annotations -->
+        <g font-size="9" fill="#555" font-family="Inter,system-ui">
+          <!-- Top zone callout -->
+          <line x1="262" y1="80" x2="278" y2="80" stroke="#333" stroke-width="0.5"/>
+          <text x="280" y="76" font-size="8" fill="#666" letter-spacing="1">VISIBLE</text>
+          <text x="280" y="87" font-size="8" fill="#444">Clock, notifs, calls</text>
+
+          <!-- Shield callout -->
+          <line x1="262" y1="250" x2="278" y2="250" stroke="#333" stroke-width="0.5"/>
+          <text x="280" y="246" font-size="8" fill="#666" letter-spacing="1">SHIELD</text>
+          <text x="280" y="257" font-size="8" fill="#444">Frosted PC panel</text>
+
+          <!-- Timer callout -->
+          <line x1="170" y1="310" x2="186" y2="310" stroke="#333" stroke-width="0.5"/>
+        </g>
+
+      </svg>
+    </div>
+  </div>
+
+  <!-- SIDE + CLIP VIEWS -->
+  <div class="views-row">
+    <div class="phone-wrap">
+      <div class="phone-label">Side Profile</div>
+      <svg width="160" height="340" viewBox="0 0 160 340">
+        <!-- Case -->
+        <rect x="50" y="10" width="10" height="280" rx="2" fill="#1a1a25" stroke="#2a2a35" stroke-width="0.5"/>
+        <text x="40" y="30" text-anchor="end" fill="#444" font-size="8" letter-spacing="1">CASE</text>
+        
+        <!-- Phone -->
+        <rect x="60" y="10" width="8" height="280" rx="1" fill="#2a2a35" stroke="#333"/>
+        <text x="82" y="30" fill="#444" font-size="8" letter-spacing="1">PHONE</text>
+        
+        <!-- Case right -->
+        <rect x="68" y="10" width="10" height="280" rx="2" fill="#1a1a25" stroke="#2a2a35" stroke-width="0.5"/>
+
+        <!-- Shield -->
+        <rect x="40" y="120" width="48" height="170" rx="2" fill="rgba(167,139,250,.08)" stroke="rgba(167,139,250,.2)" stroke-width="0.8"/>
+        <text x="64" y="210" text-anchor="middle" fill="rgba(167,139,250,.3)" font-size="7" transform="rotate(-90,64,210)" letter-spacing="2">SHIELD</text>
+
+        <!-- Left rail/clip -->
+        <path d="M 38 120 C 26 120, 22 132, 22 145 L 22 275 C 22 288, 26 300, 38 300" stroke="#333" stroke-width="2" fill="none"/>
+        <path d="M 38 120 C 26 120, 22 132, 22 145 L 22 275 C 22 288, 26 300, 38 300" stroke="rgba(167,139,250,.1)" stroke-width="1" fill="none"/>
+        
+        <!-- Right rail/clip -->
+        <path d="M 90 120 C 102 120, 106 132, 106 145 L 106 275 C 106 288, 102 300, 90 300" stroke="#333" stroke-width="2" fill="none"/>
+        <path d="M 90 120 C 102 120, 106 132, 106 145 L 106 275 C 106 288, 102 300, 90 300" stroke="rgba(167,139,250,.1)" stroke-width="1" fill="none"/>
+
+        <!-- Dimension -->
+        <line x1="22" y1="315" x2="106" y2="315" stroke="#333" stroke-width="0.5" stroke-dasharray="3,2"/>
+        <text x="64" y="330" text-anchor="middle" fill="#444" font-size="8" letter-spacing="1">8–16mm AUTO-FIT</text>
+
+        <!-- Thickness label -->
+        <line x1="40" y1="105" x2="88" y2="105" stroke="#333" stroke-width="0.5" stroke-dasharray="3,2"/>
+        <text x="64" y="100" text-anchor="middle" fill="#555" font-size="7" letter-spacing="1">~2mm SLIM</text>
+      </svg>
+    </div>
+
+    <div class="phone-wrap">
+      <div class="phone-label">Clip Detail — Top Down</div>
+      <svg width="220" height="340" viewBox="0 0 220 200">
+        <!-- Phone cross-section -->
+        <rect x="60" y="65" width="100" height="14" rx="3" fill="#2a2a35" stroke="#333"/>
+        <text x="110" y="58" text-anchor="middle" fill="#444" font-size="8" letter-spacing="1">PHONE + CASE</text>
+
+        <!-- Case edges -->
+        <rect x="54" y="63" width="6" height="18" rx="2" fill="#1a1a25" stroke="#2a2a35" stroke-width="0.5"/>
+        <rect x="160" y="63" width="6" height="18" rx="2" fill="#1a1a25" stroke="#2a2a35" stroke-width="0.5"/>
+
+        <!-- Shield face -->
+        <rect x="54" y="55" width="112" height="6" rx="2" fill="rgba(167,139,250,.1)" stroke="rgba(167,139,250,.2)" stroke-width="0.8"/>
+        <text x="110" y="49" text-anchor="middle" fill="rgba(167,139,250,.3)" font-size="7" letter-spacing="2">FROSTED PANEL</text>
+
+        <!-- Rail clips -->
+        <path d="M 48 55 C 34 55, 28 63, 28 72 C 28 81, 34 89, 48 89" stroke="#333" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M 172 55 C 186 55, 192 63, 192 72 C 192 81, 186 89, 172 89" stroke="#333" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+        <!-- Spring arrows -->
+        <text x="20" y="75" text-anchor="middle" fill="#555" font-size="11">→</text>
+        <text x="200" y="75" text-anchor="middle" fill="#555" font-size="11">←</text>
+
+        <!-- Rail labels -->
+        <text x="28" y="105" text-anchor="middle" fill="#444" font-size="7" letter-spacing="1">SPRING</text>
+        <text x="28" y="113" text-anchor="middle" fill="#444" font-size="7" letter-spacing="1">RAIL</text>
+        <text x="192" y="105" text-anchor="middle" fill="#444" font-size="7" letter-spacing="1">SPRING</text>
+        <text x="192" y="113" text-anchor="middle" fill="#444" font-size="7" letter-spacing="1">RAIL</text>
+
+        <!-- How it works -->
+        <rect x="35" y="130" width="150" height="55" rx="12" fill="rgba(255,255,255,.02)" stroke="rgba(255,255,255,.04)"/>
+        <text x="110" y="148" text-anchor="middle" fill="#666" font-size="9" font-weight="500">Squeeze → Slide on → Release</text>
+        <text x="110" y="163" text-anchor="middle" fill="#444" font-size="8">Spring tension grips any case</text>
+        <text x="110" y="176" text-anchor="middle" fill="#444" font-size="8">Same mechanism as tripod mounts</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- COLOR OPTIONS -->
+  <div class="section-title">Colorways</div>
+  <div class="colors">
+    <div>
+      <div class="color-dot active" style="background:linear-gradient(135deg,#1a1a2a,#0a0a12);border-color:rgba(167,139,250,.3)"></div>
+      <div class="color-name">Obsidian</div>
+    </div>
+    <div>
+      <div class="color-dot" style="background:linear-gradient(135deg,#f5f5f0,#e0e0da)"></div>
+      <div class="color-name">Bone</div>
+    </div>
+    <div>
+      <div class="color-dot" style="background:linear-gradient(135deg,#2a3040,#1a2030)"></div>
+      <div class="color-name">Slate</div>
+    </div>
+    <div>
+      <div class="color-dot" style="background:linear-gradient(135deg,transparent,rgba(255,255,255,.05));border:1px solid rgba(255,255,255,.15)"></div>
+      <div class="color-name">Clear</div>
+    </div>
+    <div>
+      <div class="color-dot" style="background:linear-gradient(135deg,#a78bfa,#6366f1)"></div>
+      <div class="color-name">Violet</div>
+    </div>
+  </div>
+
+  <!-- MATERIALS -->
+  <div class="section-title">Materials</div>
+  <div class="material-strip">
+    <div class="mat-block">
+      <div class="mat-name">Shield</div>
+      <div class="mat-desc">Frosted polycarbonate<br>1.5mm, matte finish</div>
+    </div>
+    <div class="mat-block">
+      <div class="mat-name">Rails</div>
+      <div class="mat-desc">Anodized aluminum<br>with soft-touch coating</div>
+    </div>
+    <div class="mat-block">
+      <div class="mat-name">Clips</div>
+      <div class="mat-desc">Stainless spring steel<br>rubber-tipped grip</div>
+    </div>
+    <div class="mat-block">
+      <div class="mat-name">Timer</div>
+      <div class="mat-desc">Borosilicate micro-vial<br>metallic sand fill</div>
+    </div>
+  </div>
+
+  <!-- DESIGN PHILOSOPHY -->
+  <div class="card" style="margin-top:30px">
+    <h3>Design Language</h3>
+    <ul class="features">
+      <li><span class="icon">◆</span> <strong style="color:#ccc">Nothing Phone meets Apple MagSafe.</strong> Transparent/frosted aesthetic with clean industrial lines. No visible screws, no chunky plastic — just a slim panel that looks like it belongs on the phone.</li>
+      <li><span class="icon">◆</span> <strong style="color:#ccc">Flush rails, not clips.</strong> The spring mechanism is hidden inside matte aluminum side rails that mirror the phone's own edge profile. When attached, it looks like a sleek phone case extension — not a clip-on accessory.</li>
+      <li><span class="icon">◆</span> <strong style="color:#ccc">The timer is the jewel.</strong> Centered in the frosted panel like a watch face complication. Metallic sand (gold, rose gold, or silver) catches light. It's the conversation piece — "what's that on your phone?"</li>
+      <li><span class="icon">◆</span> <strong style="color:#ccc">2mm total thickness.</strong> Adds almost nothing to the phone's profile. Slips into a pocket. Doesn't catch on anything.</li>
+      <li><span class="icon">◆</span> <strong style="color:#ccc">Matte everything.</strong> No fingerprint magnets. Soft-touch coating on rails. Frosted (not glossy) shield. Feels premium in hand.</li>
+    </ul>
+  </div>
+
+  <!-- vs COMPETITORS -->
+  <div class="section-title">vs. The Alternatives</div>
+  <div class="compare-row">
+    <div class="compare-cell header">Phone Lock Box</div>
+    <div class="compare-cell header" style="background:#0d0d14">Scroll Shield</div>
+    <div class="compare-cell header">Brick (NFC)</div>
+  </div>
+  <div class="compare-row">
+    <div class="compare-cell"><div class="val">$30-60</div><div class="label">Price</div></div>
+    <div class="compare-cell highlight" style="background:#0d0d14"><div class="val">$15-18</div><div class="label">Price</div></div>
+    <div class="compare-cell"><div class="val">$59-99</div><div class="label">Price</div></div>
+  </div>
+  <div class="compare-row">
+    <div class="compare-cell"><div class="val" style="font-size:14px;color:#666">Locks phone away</div><div class="label">Access</div></div>
+    <div class="compare-cell highlight" style="background:#0d0d14"><div class="val" style="font-size:14px">Keep your phone</div><div class="label">Access</div></div>
+    <div class="compare-cell"><div class="val" style="font-size:14px;color:#666">Needs app + NFC</div><div class="label">Access</div></div>
+  </div>
+  <div class="compare-row">
+    <div class="compare-cell"><div class="val" style="font-size:14px;color:#666">Bulky box</div><div class="label">Form</div></div>
+    <div class="compare-cell highlight" style="background:#0d0d14"><div class="val" style="font-size:14px">2mm slim panel</div><div class="label">Form</div></div>
+    <div class="compare-cell"><div class="val" style="font-size:14px;color:#666">Separate device</div><div class="label">Form</div></div>
+  </div>
+
+  <!-- SPECS -->
+  <div class="card" style="margin-top:30px">
+    <h3>Manufacturing Specs</h3>
+    <div class="spec-grid">
+      <div class="spec-item">
+        <div class="spec-label">BOM Cost</div>
+        <div class="spec-value">$2.50-3.50 at 1,000+ units</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Retail Price</div>
+        <div class="spec-value">$15-18 (5-6x margin)</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Weight</div>
+        <div class="spec-value">~28g (lighter than AirPods)</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Thickness</div>
+        <div class="spec-value">2mm profile</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Fit Range</div>
+        <div class="spec-value">60-90mm width (all phones + cases)</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Timer Options</div>
+        <div class="spec-value">30 min / 60 min (two SKUs)</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">Tooling</div>
+        <div class="spec-value">Injection mold (shield) + spring assembly</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">MOQ Estimate</div>
+        <div class="spec-value">500-1,000 units from Shenzhen</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center;padding:40px 0 60px">
+    <div style="font-size:10px;letter-spacing:3px;color:#333;text-transform:uppercase">Scroll Shield — Concept by Artemis</div>
+    <div style="font-size:10px;color:#222;margin-top:4px">February 2026</div>
+  </div>
 
 </div>
 </body></html>

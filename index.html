@@ -148,8 +148,8 @@
         <text x="70" y="136" fill="#555" font-size="9">Dad • 2 min ago</text>
 
         <!-- ═══════════ THE SHIELD ═══════════ -->
-        <!-- Shield body — frosted panel -->
-        <rect x="10" y="158" width="260" height="337" rx="0 0 36 36" fill="url(#shieldGrad)" stroke="rgba(167,139,250,.2)" stroke-width="1"/>
+        <!-- Shield body — frosted panel (covers middle zone, leaves top + bottom open) -->
+        <rect x="10" y="158" width="260" height="260" fill="url(#shieldGrad)" stroke="rgba(167,139,250,.2)" stroke-width="1"/>
         
         <!-- Frosted texture lines (subtle) -->
         <g opacity="0.04" clip-path="url(#screenClip)">
@@ -165,9 +165,6 @@
           <line x1="22" y1="360" x2="258" y2="360" stroke="#fff" stroke-width="0.5"/>
           <line x1="22" y1="380" x2="258" y2="380" stroke="#fff" stroke-width="0.5"/>
           <line x1="22" y1="400" x2="258" y2="400" stroke="#fff" stroke-width="0.5"/>
-          <line x1="22" y1="420" x2="258" y2="420" stroke="#fff" stroke-width="0.5"/>
-          <line x1="22" y1="440" x2="258" y2="440" stroke="#fff" stroke-width="0.5"/>
-          <line x1="22" y1="460" x2="258" y2="460" stroke="#fff" stroke-width="0.5"/>
         </g>
 
         <!-- Shield edge — the premium rail -->
@@ -176,38 +173,23 @@
         <!-- Right rail -->
         <rect x="270" y="158" width="5" height="337" rx="2.5" fill="url(#edgeGrad)"/>
 
-        <!-- Transition line — the premium detail -->
+        <!-- Transition line top — the premium detail -->
         <line x1="10" y1="158" x2="270" y2="158" stroke="rgba(167,139,250,.3)" stroke-width="0.5" filter="url(#glow)"/>
+        
+        <!-- Transition line bottom — where shield ends and call window begins -->
+        <line x1="10" y1="418" x2="270" y2="418" stroke="rgba(167,139,250,.3)" stroke-width="0.5" filter="url(#glow)"/>
 
         <!-- Subtle "SCROLL SHIELD" branding embossed -->
-        <text x="140" y="188" text-anchor="middle" fill="rgba(167,139,250,.12)" font-size="8" letter-spacing="6" font-weight="600">SCROLL SHIELD</text>
+        <text x="140" y="300" text-anchor="middle" fill="rgba(167,139,250,.12)" font-size="8" letter-spacing="6" font-weight="600">SCROLL SHIELD</text>
 
-        <!-- Sand Timer — minimal, elegant -->
-        <g transform="translate(140,310)">
-          <!-- Outer capsule -->
-          <rect x="-14" y="-40" width="28" height="80" rx="14" fill="none" stroke="rgba(167,139,250,.25)" stroke-width="1"/>
-          <!-- Inner glass -->
-          <rect x="-10" y="-36" width="20" height="72" rx="10" fill="rgba(167,139,250,.04)"/>
-          <!-- Neck -->
-          <rect x="-3" y="-3" width="6" height="6" rx="1" fill="rgba(167,139,250,.08)"/>
-          <!-- Top sand -->
-          <circle cx="0" cy="-16" r="4" fill="rgba(167,139,250,.2)"/>
-          <circle cx="0" cy="-10" r="3" fill="rgba(167,139,250,.15)"/>
-          <circle cx="-2" cy="-5" r="2" fill="rgba(167,139,250,.1)"/>
-          <!-- Falling grain -->
-          <circle cx="0" cy="6" r="1" fill="rgba(167,139,250,.3)">
-            <animate attributeName="cy" values="4;16" dur="2s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0.4;0" dur="2s" repeatCount="indefinite"/>
-          </circle>
-          <!-- Bottom pile -->
-          <ellipse cx="0" cy="26" rx="7" ry="4" fill="rgba(167,139,250,.12)"/>
-          <ellipse cx="0" cy="24" rx="5" ry="3" fill="rgba(167,139,250,.18)"/>
-        </g>
+        <!-- ═══════════ BOTTOM CALL WINDOW ═══════════ -->
+        <!-- Incoming call UI visible through the open bottom window -->
+        <rect x="34" y="430" width="212" height="42" rx="10" fill="rgba(255,255,255,.04)"/>
+        <circle cx="52" cy="451" r="10" fill="rgba(34,197,94,.2)"/>
+        <text x="52" y="455" text-anchor="middle" fill="#22c55e" font-size="10">📞</text>
+        <text x="70" y="446" fill="#999" font-size="10" font-weight="500">Incoming Call</text>
+        <text x="70" y="460" fill="#555" font-size="9">slide to answer ›</text>
 
-        <!-- Timer label -->
-        <text x="140" y="375" text-anchor="middle" fill="rgba(167,139,250,.15)" font-size="7" letter-spacing="3">30 MIN</text>
-
-        <!-- Bottom rounded corners of shield match phone -->
         <!-- Clip indicator dots -->
         <circle cx="8" cy="320" r="2" fill="rgba(167,139,250,.2)"/>
         <circle cx="272" cy="320" r="2" fill="rgba(167,139,250,.2)"/>
@@ -220,12 +202,14 @@
           <text x="280" y="87" font-size="8" fill="#444">Clock, notifs, calls</text>
 
           <!-- Shield callout -->
-          <line x1="262" y1="250" x2="278" y2="250" stroke="#333" stroke-width="0.5"/>
-          <text x="280" y="246" font-size="8" fill="#666" letter-spacing="1">SHIELD</text>
-          <text x="280" y="257" font-size="8" fill="#444">Frosted PC panel</text>
+          <line x1="262" y1="280" x2="278" y2="280" stroke="#333" stroke-width="0.5"/>
+          <text x="280" y="276" font-size="8" fill="#666" letter-spacing="1">SHIELD</text>
+          <text x="280" y="287" font-size="8" fill="#444">Frosted PC panel</text>
 
-          <!-- Timer callout -->
-          <line x1="170" y1="310" x2="186" y2="310" stroke="#333" stroke-width="0.5"/>
+          <!-- Bottom window callout -->
+          <line x1="262" y1="450" x2="278" y2="450" stroke="#333" stroke-width="0.5"/>
+          <text x="280" y="446" font-size="8" fill="#22c55e" letter-spacing="1">OPEN</text>
+          <text x="280" y="457" font-size="8" fill="#444">Swipe to answer</text>
         </g>
 
       </svg>
@@ -349,8 +333,8 @@
       <div class="mat-desc">Stainless spring steel<br>rubber-tipped grip</div>
     </div>
     <div class="mat-block">
-      <div class="mat-name">Timer</div>
-      <div class="mat-desc">Borosilicate micro-vial<br>metallic sand fill</div>
+      <div class="mat-name">Window</div>
+      <div class="mat-desc">Open bottom cutout<br>for calls &amp; swipe</div>
     </div>
   </div>
 
@@ -360,7 +344,7 @@
     <ul class="features">
       <li><span class="icon">◆</span> <strong style="color:#ccc">Nothing Phone meets Apple MagSafe.</strong> Transparent/frosted aesthetic with clean industrial lines. No visible screws, no chunky plastic — just a slim panel that looks like it belongs on the phone.</li>
       <li><span class="icon">◆</span> <strong style="color:#ccc">Flush rails, not clips.</strong> The spring mechanism is hidden inside matte aluminum side rails that mirror the phone's own edge profile. When attached, it looks like a sleek phone case extension — not a clip-on accessory.</li>
-      <li><span class="icon">◆</span> <strong style="color:#ccc">The timer is the jewel.</strong> Centered in the frosted panel like a watch face complication. Metallic sand (gold, rose gold, or silver) catches light. It's the conversation piece — "what's that on your phone?"</li>
+      <li><span class="icon">◆</span> <strong style="color:#ccc">Open call window at the bottom.</strong> A ~60px open zone below the shield lets you see incoming calls and swipe to answer without removing the device. You stay reachable. The shield blocks the feed, not your phone.</li>
       <li><span class="icon">◆</span> <strong style="color:#ccc">2mm total thickness.</strong> Adds almost nothing to the phone's profile. Slips into a pocket. Doesn't catch on anything.</li>
       <li><span class="icon">◆</span> <strong style="color:#ccc">Matte everything.</strong> No fingerprint magnets. Soft-touch coating on rails. Frosted (not glossy) shield. Feels premium in hand.</li>
     </ul>
@@ -395,7 +379,7 @@
     <div class="spec-grid">
       <div class="spec-item">
         <div class="spec-label">BOM Cost</div>
-        <div class="spec-value">$2.50-3.50 at 1,000+ units</div>
+        <div class="spec-value">$1.80-2.50 at 1,000+ units</div>
       </div>
       <div class="spec-item">
         <div class="spec-label">Retail Price</div>
@@ -414,8 +398,8 @@
         <div class="spec-value">60-90mm width (all phones + cases)</div>
       </div>
       <div class="spec-item">
-        <div class="spec-label">Timer Options</div>
-        <div class="spec-value">30 min / 60 min (two SKUs)</div>
+        <div class="spec-label">Call Window</div>
+        <div class="spec-value">~60px open zone, bottom of screen</div>
       </div>
       <div class="spec-item">
         <div class="spec-label">Tooling</div>
